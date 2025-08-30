@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<link href="images/logo.ico" rel="icon" type="image/x-icon"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dziękujemy za zamówienie</title>
+<link href="style.css" rel="stylesheet">
+</link>
+<script src="products.js"></script>
+</head>
+<div class="header">
+<a class="logo-link" href="index.html">
+<div class="logo-wrapper">
+<img alt="MAKI logo" class="logo" src="images/logo.png"/>
+</div>
+</a>
+<div class="right-side">
+<div class="search-bar">
+  <i class="fas fa-search"></i>
+  <input type="text" placeholder="Wyszukaj produkty, kategorie, zapachy" id="searchInput" autocomplete="off" />
+  <a href="koszyk.html" class="cart-icon">
+    (<span id="cartCount">0</span>)
+    <i class="fas fa-shopping-cart"></i>
+  </a>
+  <button class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
+
+<nav class="menu">
+<ul>
+<li><a href="index.html">STRONA GŁÓWNA</a></li> 
+<li><a href="catalog.html">KATALOG</a></li>
+<li><a href="about.html">O NAS</a></li>
+<li><a href="contact.html">KONTAKT</a></li>
+<li><a href="regulamin.html">REGULAMIN</a></li>
+<li><a href="rodo.html">POLITYKA PRYWATNOŚCI</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div id="searchResults" class="search-results"></div>
+<body>
+
+<div class="thx-container">
+    <h1>Dziękujemy za Twoje zamówienie!</h1><br>
+    <p>Potwierdzenie zostało wysłane na Twój adres e-mail. <br>Jeśli nie otrzymasz wiadomości w ciągu kilku minut, sprawdź folder spam, lub skontaktuj się z nami przez instagram/mailowo<br>
+            <br><p style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> 
+        <a href="mailto:MakiCandles@gmail.com">MakiCandles@gmail.com</a>
+      </p>
+        <p><a class="insta-link2" href="https://www.instagram.com/maki_candles.pl/" target="_blank">
+<i class="fab fa-instagram"></i> <span style="font-weight:600">Instagram</span>
+    </a>
+    </p></p><br>
+    <a href="index.html">← Powrót do strony głównej</a>
+    <img src="images/logo5.png" alt="" class="thankyou-image">
+  </div>
+
+
+
+
+
+
+
+
+</body>
+
+<script src="script.js"></script>
+<footer class="footer">
+<div class="footer-left">
+<span>© 2025 Maki Candles. All rights reserved.</span>
+<a class="insta-link" href="https://www.instagram.com/maki_candles.pl/" target="_blank">
+<i class="fab fa-instagram"></i> Instagram
+    </a>
+</div>
+<div class="footer-right">
+<span>Potrzebujesz indywidualnego zamówienia ?</span><br/>
+<span>Chcesz się skontaktować w sprawie swoich zakupów ?</span><br/>
+<span>Napisz do nas email: <a id="emailLink" href="mailto:MakiCandles@gmail.com">MakiCandles@gmail.com</a></span><br/>
+
+</div>
+</footer>
+</html>

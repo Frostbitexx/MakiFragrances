@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<link href="images/logo.ico" rel="icon" type="image/x-icon"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maki Candles</title>
+<link href="style.css" rel="stylesheet">
+</link>
+<script src="products.js"></script>
+</head>
+<div class="header">
+<a class="logo-link" href="index.html">
+<div class="logo-wrapper">
+<img alt="MAKI logo" class="logo" src="images/logo.png"/>
+</div>
+</a>
+<div class="right-side">
+<div class="search-bar">
+  <i class="fas fa-search"></i>
+  <input type="text" placeholder="Wyszukaj produkty, kategorie, zapachy" id="searchInput" autocomplete="off" />
+  <a href="koszyk.html" class="cart-icon">
+    (<span id="cartCount">0</span>)
+    <i class="fas fa-shopping-cart"></i>
+  </a>
+  <button class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
+
+<nav class="menu">
+<ul>
+<li><a href="index.html">STRONA GŁÓWNA</a></li> 
+<li><a href="catalog.html">KATALOG</a></li>
+<li><a href="about.html">O NAS</a></li>
+<li><a href="contact.html">KONTAKT</a></li>
+<li><a href="regulamin.html">REGULAMIN</a></li>
+<li><a href="rodo.html">POLITYKA PRYWATNOŚCI</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div id="searchResults" class="search-results"></div>
+<body>
+<section class="slider-container">
+  <div class="logo-overlay">
+    <img alt="MAKI logo" class="logo" src="images/logo2.png"/>
+  </div>
+  <div class="slider-wrapper">
+    <div class="slider">
+      <img src="images/image0.jpeg" alt="Baner 1" />
+      <img src="images/baner7.JPG" alt="Baner 2" />
+      <img src="images/image2.jpeg" alt="Baner 3" />
+    </div>
+    <div class="slider-nav">
+      <button data-slide="0" class="dot"></button>
+      <button data-slide="1" class="dot"></button>
+      <button data-slide="2" class="dot"></button>
+    </div>
+  </div>
+</section>
+
+  <div class="reg-container">
+    <h1>Regulamin sklepu internetowego Maki Candles</h1>
+
+    <h2>1. Postanowienia ogólne</h2>
+    <p>1.1. Sklep internetowy Maki Candles umożliwia składanie zamówień na produkty poprzez stronę internetową.</p>
+    <p>1.2. Właścicielem sklepu i administratorem danych jest właściciel marki Maki Candles – kontakt e-mail: <a href="mailto:MakiCandles@gmail.com">MakiCandles@gmail.com</a>.</p>
+    <p>1.3. Niniejszy regulamin określa zasady korzystania ze sklepu, składania zamówień oraz ochrony danych osobowych.</p>
+
+    <h2>2. Składanie zamówień</h2>
+    <p>2.1. Klient może przeglądać ofertę produktów bez zakładania konta.</p>
+    <p>2.2. Produkty mogą być dodawane do koszyka. Po wybraniu produktów, klient może przejść do formularza zamówienia.</p>
+    <p>2.3. Złożenie zamówienia następuje poprzez wypełnienie formularza z danymi do wysyłki.</p>
+    <p>2.4. Po złożeniu zamówienia klient otrzymuje wiadomość e-mail z podsumowaniem zamówienia oraz instrukcją płatności.</p>
+    <p>2.5. Zamówienie zostaje przyjęte do realizacji po jego opłaceniu (przelewem lub Blikiem).</p>
+
+    <h2>3. Płatności</h2>
+    <p>3.1. Sklep nie obsługuje płatności online.</p>
+    <p>3.2. Po złożeniu zamówienia klient otrzymuje wiadomość e-mail z numerem zamówienia i danymi do przelewu.</p>
+    <p>3.3. Płatności należy dokonać przelewem bankowym lub Blikiem, podając numer zamówienia w tytule przelewu.</p>
+    <p>3.4. Brak płatności w ciągu 5 dni roboczych może skutkować anulowaniem zamówienia.</p>
+
+    <h2>4. Wysyłka</h2>
+    <p>4.1. Zamówienia są realizowane po zaksięgowaniu wpłaty.</p>
+    <p>4.2. Czas realizacji zależy od dostępności produktu, standardowo wynosi do 5 dni roboczych.</p>
+    <p>4.3. Przesyłki są realizowane za pośrednictwem firm kurierskich lub paczkomatów.</p>
+
+    <h2>5. Reklamacje i zwroty</h2>
+    <p>5.1. Klient ma prawo do złożenia reklamacji w przypadku uszkodzenia produktu lub niezgodności z zamówieniem.</p>
+    <p>5.2. W przypadku reklamacji należy skontaktować się poprzez e-mail.</p>
+    <p>5.3. Zwrot jest możliwy w ciągu 14 dni od otrzymania przesyłki, o ile produkt nie nosi śladów użycia.</p>
+
+    <h2>6. Ochrona danych osobowych</h2>
+    <p>6.1. Dane osobowe klientów są przetwarzane zgodnie z przepisami RODO oraz wyłącznie w celu realizacji zamówień.</p>
+    <p>6.2. Dane są wykorzystywane wyłącznie w celu realizacji zamówienia i nie są przekazywane podmiotom trzecim.</p>
+    <p>6.3. Klient ma prawo dostępu do swoich danych, ich edycji, usunięcia oraz wniesienia sprzeciwu.</p>
+    <p>6.4. Administratorem danych jest właściciel sklepu Maki Candles, kontakt: <a href="mailto:MakiCandles@gmail.com">MakiCandles@gmail.com</a>.</p>
+    <p>6.5. Zasady przetwarzania danych osobowych opisane są w <a href="rodo.html">Polityce Prywatności (RODO)</a>.</p>
+
+    <h2>7. Postanowienia końcowe</h2>
+    <p>7.1. Składając zamówienie klient akceptuje niniejszy regulamin.</p>
+    <p>7.2. W sprawach nieuregulowanych regulaminem mają zastosowanie przepisy Kodeksu Cywilnego.</p>
+    <p>7.3. Sklep zastrzega sobie prawo do wprowadzania zmian w regulaminie.</p>
+  </div>
+
+
+
+</body>
+
+<script src="script.js"></script>
+
+
+<footer class="footer">
+<div class="footer-left">
+<span>© 2025 Maki Candles. All rights reserved.</span>
+<a class="insta-link" href="https://www.instagram.com/maki_candles.pl/" target="_blank">
+<i class="fab fa-instagram"></i> Instagram
+    </a>
+</div>
+<div class="footer-right">
+<span>Potrzebujesz indywidualnego zamówienia ?</span><br/>
+<span>Chcesz się skontaktować w sprawie swoich zakupów ?</span><br/>
+<span>Napisz do nas email: <a id="emailLink" href="mailto:MakiCandles@gmail.com">MakiCandles@gmail.com</a></span><br/>
+
+</div>
+</footer>
+</html>

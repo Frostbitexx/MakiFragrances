@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<link href="images/logo.ico" rel="icon" type="image/x-icon"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maki Candles</title>
+<link href="style.css" rel="stylesheet">
+</link>
+  <script src="products.js"></script>
+</head>
+<div class="header">
+<a class="logo-link" href="index.html">
+<div class="logo-wrapper">
+<img alt="MAKI logo" class="logo" src="images/logo.png"/>
+</div>
+</a>
+<div class="right-side">
+<div class="search-bar">
+  <i class="fas fa-search"></i>
+  <input type="text" placeholder="Wyszukaj produkty, kategorie, zapachy" id="searchInput" autocomplete="off" />
+  <a href="koszyk.html" class="cart-icon">
+    (<span id="cartCount">0</span>)
+    <i class="fas fa-shopping-cart"></i>
+  </a>
+  <button class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
+
+<nav class="menu">
+<ul>
+<li><a href="index.html">STRONA GŁÓWNA</a></li> 
+<li><a href="catalog.html">KATALOG</a></li>
+<li><a href="about.html">O NAS</a></li>
+<li><a href="contact.html">KONTAKT</a></li>
+<li><a href="regulamin.html">REGULAMIN</a></li>
+<li><a href="rodo.html">POLITYKA PRYWATNOŚCI</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div id="searchResults" class="search-results"></div>
+<div class="container">
+    <div class="continue-shopping">
+      <a href="index.html">
+        <i class="fas fa-undo"></i>
+        Kontynuuj zakupy
+      </a>
+    </div>
+  <div class="cart-container">
+    <h1>Twój koszyk</h1>
+    <div id="cartItems"></div>
+    <div class="cart-total" id="cartTotal"></div>
+    <div class="cart-buttons">
+  <button class="checkout-btn" onclick="goToForm()">ZAMAWIAM</button>
+  <button class="checkout-btn" onclick="clearCart()">WYCZYŚĆ KOSZYK</button>
+</div>
+
+  </div>
+
+  <script>
+ //renderowanie koszyka
+
+
+function generateOrderNumber() {
+  const now = new Date();
+  const day = String(now.getDate()).padStart(2, '0');
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const year = now.getFullYear();
+
+  const time = now.getHours().toString().padStart(2, '0') +
+               now.getMinutes().toString().padStart(2, '0') +
+               now.getSeconds().toString().padStart(2, '0') +
+               now.getMilliseconds().toString().padStart(3, '0');
+
+  return `ZAM${day}${month}${year}${time}`;
+}
+
+
+function goToForm() {
+  const orderNumber = generateOrderNumber();
+  localStorage.setItem("orderNumber", orderNumber);
+  window.location.href = "checkout.html";
+}
+
+
+
+
+
+
+  function clearCart() {
+    if (confirm("Czy na pewno chcesz wyczyścić koszyk?")) {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+  }
+</script>
+
+
+  
+  </div>
+
+
+</body>
+
+  <script src="script.js"></script>
+<footer class="footer">
+<div class="footer-left">
+<span>© 2025 Maki Candles. All rights reserved.</span>
+<a class="insta-link" href="https://www.instagram.com/maki_candles.pl/" target="_blank">
+<i class="fab fa-instagram"></i> Instagram
+    </a>
+</div>
+<div class="footer-right">
+<span>Potrzebujesz indywidualnego zamówienia ?</span><br/>
+<span>Chcesz się skontaktować w sprawie swoich zakupów ?</span><br/>
+<span>Napisz do nas email: <a id="emailLink" href="mailto:MakiCandles@gmail.com">MakiCandles@gmail.com</a></span><br/>
+
+</div>
+</footer>
+
+</html>

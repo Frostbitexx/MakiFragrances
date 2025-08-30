@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<link href="images/logo.ico" rel="icon" type="image/x-icon"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maki Candles</title>
+<link href="style.css" rel="stylesheet">
+</link>
+<script src="products.js"></script>
+</head>
+<div class="header">
+<a class="logo-link" href="index.html">
+<div class="logo-wrapper">
+<img alt="MAKI logo" class="logo" src="images/logo.png"/>
+</div>
+</a>
+<div class="right-side">
+<div class="search-bar">
+  <i class="fas fa-search"></i>
+  <input type="text" placeholder="Wyszukaj produkty, kategorie, zapachy" id="searchInput" autocomplete="off" />
+  <a href="koszyk.html" class="cart-icon">
+    (<span id="cartCount">0</span>)
+    <i class="fas fa-shopping-cart"></i>
+  </a>
+  <button class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
+
+<nav class="menu">
+<ul>
+<li><a href="index.html">STRONA GŁÓWNA</a></li> 
+<li><a href="catalog.html">KATALOG</a></li>
+<li><a href="about.html">O NAS</a></li>
+<li><a href="contact.html">KONTAKT</a></li>
+<li><a href="regulamin.html">REGULAMIN</a></li>
+<li><a href="rodo.html">POLITYKA PRYWATNOŚCI</a></li>
+</ul>
+</nav>
+</div>
+</div>
+<div id="searchResults" class="search-results"></div>
+<body>
+
+
+
+
+</head>
+<body>
+ <div class="container">
+    
+
+<div id="loadingOverlay" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.8);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+">
+  <div class="spinner"></div>
+  <p style="margin-top: 10px;">Trwa składanie zamówienia...</p>
+</div>
+
+<style>
+.spinner {
+  border: 5px solid #ccc;
+  border-top: 5px solid #333;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+</style>
+
+<div class="checkout-container">
+    <form id="orderForm">
+<h1>Formularz zamówienia – Maki Candles</h1>
+
+  <!-- Ukryte pola przekazywane z koszyka -->
+  <input type="hidden" name="orderNumber" id="orderNumberInput">
+  <input type="hidden" name="orderSummary" id="orderSummaryInput">
+  <input type="hidden" name="orderTotal" id="orderTotalInput">
+
+  <!-- Widoczne podsumowanie zamówienia -->
+   <div style="  line-height: 1.5;">
+  <p><strong>Numer zamówienia:</strong> <span id="orderNumberDisplay"></span></p>
+  <p><strong>Produkty:</strong> <span id="orderSummaryDisplay"></span></p>
+  <p><strong>Łączna wartość:</strong> <span id="orderTotalDisplay"></span> zł</p>
+</div>
+  <!-- Dane klienta -->
+  <label>Imię i nazwisko*<br>
+    <input type="text" name="fullName" required>
+  </label><br>
+
+  <label>Ulica i numer domu*<br>
+    <input type="text" name="address" required>
+  </label><br>
+
+  <label>Kod pocztowy i miasto*<br>
+    <input type="text" name="city" required>
+  </label><br>
+
+  <label>Adres e-mail*<br>
+    <input type="email" name="email" required>
+  </label><br>
+
+  <label>Numer telefonu*<br>
+    <input type="tel" name="phone" required>
+  </label><br>
+<label>Napisz dedykację lub spersonalizowane życzenia (opcjonalnie):</label>
+
+<div class="dedication-wrapper">
+  <div class="dedication-instax">
+    <img src="images/dedication-img.jpeg" alt="Instax dedykacja">
+    <textarea 
+      name="dedication" 
+      rows="2" 
+      maxlength="70" 
+      placeholder="Twoja dedykacja..."></textarea>
+  </div>
+</div>
+
+<label>Wybierz rodzaj opakowania dla swojego zamówienia:</label>
+<div class="package-container">
+  <label class="package-option">
+    <img src="images/black.jpeg" alt="Czarne opakowanie">
+    <div>
+      <input type="radio" name="package" value="czarne" required> Czarne
+    </div>
+  </label>
+
+  <label class="package-option">
+    <img src="images/kraft.jpeg" alt="Kraftowe opakowanie">
+    <div>
+      <input type="radio" name="package" value="Kraftowe" required> Kraftowe
+    </div>
+  </label>
+</div>
+  <label>
+    <input type="checkbox" name="rodo" required> Zapoznałem się z polityką prywatności, RODO oraz regulaminem
+  </label><br><br>
+
+  <button type="submit">Złóż zamówienie</button>
+</form>
+<br><br>
+<p style="font-size: 0.9rem; line-height: 1.5;">
+  Administratorem Twoich danych osobowych jest właściciel sklepu Maki Candles. Twoje dane osobowe są przetwarzane w celu realizacji zamówienia oraz kontaktu związanego z jego obsługą.
+  <br /><br />
+  Podanie danych jest dobrowolne, ale niezbędne do złożenia i realizacji zamówienia. Dane przekazane za pośrednictwem formularza są przechowywane w zabezpieczonym arkuszu Google Sheets.
+  <br /><br />
+  Masz prawo dostępu do swoich danych, ich poprawiania, usunięcia, ograniczenia przetwarzania oraz wniesienia sprzeciwu. W sprawach związanych z danymi osobowymi możesz skontaktować się z nami poprzez adres e-mail: <a href="mailto:MakiCandles@gmail.com">MakiCandles@gmail.com</a>.
+</p>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<script src="script.js"></script>
+<footer class="footer">
+<div class="footer-left">
+<span>© 2025 Maki Candles. All rights reserved.</span>
+<a class="insta-link" href="https://www.instagram.com/maki_candles.pl/" target="_blank">
+<i class="fab fa-instagram"></i> Instagram
+    </a>
+</div>
+<div class="footer-right">
+<span>Potrzebujesz indywidualnego zamówienia ?</span><br/>
+<span>Chcesz się skontaktować w sprawie swoich zakupów ?</span><br/>
+<span>Napisz do nas email: <a id="emailLink" href="mailto:MakiCandles@gmail.com">MakiCandles@gmail.com</a></span><br/>
+
+</div>
+</footer>
+</html>
