@@ -37,6 +37,11 @@
 body {
   font-family: Arial, sans-serif;
 }
+.preload {
+  background: url("images/categories/catcan-hover.png") no-repeat -9999px -9999px;
+  background: url("images/categories/catdiff-hover.png") no-repeat -9999px -9999px;
+  background: url("images/categories/catpack-hover.png") no-repeat -9999px -9999px;
+}
 
 .header {
   position: sticky;
@@ -732,7 +737,8 @@ font-family: 'roboto';
 }
 
 .category-image {
-  height: 600px;
+  height: 550px;
+  width: 550px;
   transition: transform 0.3s ease;
 }
 
@@ -1148,6 +1154,10 @@ body{
     height: auto;
     padding: 10px;
   }
+  .reg-container{
+  font-size: 15px;
+  min-width: 100%;
+}
 .logo-wrapper {
   min-width: 100%;
   margin: 0 auto;
@@ -1397,4 +1407,36 @@ body{
   object-fit: cover;
 
 }
+}
+@media (min-width: 1200px) {
+  .category-images {
+    flex-wrap: nowrap;
+  }
+  .category-images .cat-img {
+    flex: 1 1 0;      /* każdy zajmie 1/3 szerokości */
+    max-width: 33%;   /* limit dla bezpieczeństwa */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .category-images {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .category-images .cat-img {
+    flex: 1 1 45%;   /* dwie kolumny */
+    max-width: 45%;
+  }
+
+  .category-image {
+    width: 100%;
+    height: auto;
+    max-height: 350px; /* żeby nie były za duże */
+  }
+
+  .cat-img h3 {
+    font-size: 24px;
+  }
 }
