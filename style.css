@@ -1316,6 +1316,22 @@ body{
     height: 90px;
   }
 }
+/* Dwa produkty w rzędzie na średnich ekranach */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%;
+    margin: 0 auto 100px auto;
+  }
+
+  .product_item {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
 
 @media (min-width: 1500px){
    .products {
