@@ -102,7 +102,7 @@ body {
   flex: 1;
   border: none;
   background-color: #f9f9f9;
-  font-family: 'MagdaCleanMono';
+  font-family: 'CutiveMono';
 }
 .search-results {
   position: fixed;
@@ -114,7 +114,7 @@ body {
   overflow-y: auto;
   z-index: 999;
   display: none;
-  font-family: 'MagdaCleanMono';
+  font-family: 'CutiveMono';
   padding-left: 10vw;
 }
 
@@ -1437,5 +1437,31 @@ body{
 
   .cat-img h3 {
     font-size: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .search-results {
+    position: absolute;   /* zamiast fixed – dopasuje się do headera */
+    top: 200px;            /* trochę niżej od inputa */
+    left: 0;
+    width: 100%;
+    max-height: 60vh;     /* przewijanie na 60% wysokości ekranu */
+    overflow-y: auto;
+    padding-left: 0;      /* usuń odsunięcie */
+    box-sizing: border-box;
+     z-index: 2000;    
+  }
+
+  .search-results div {
+    padding: 12px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .search-results .no-results {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px;
   }
 }
