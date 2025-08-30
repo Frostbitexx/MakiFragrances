@@ -275,17 +275,34 @@ if (isCatalogPage) {
   if (bodies.length > 0) bodies[0].innerText = product.about || "Informacje o produkcie niedostępne.";
   if (bodies.length > 1) bodies[1].innerText = product.ingredients || "Składniki niedostępne.";
 
-  const thumbsContainer = document.getElementById("thumbnails");
-  if (thumbsContainer) {
-    thumbsContainer.innerHTML = "";
-    product.thumbs.forEach(src => {
-      const img = document.createElement("img");
-      img.src = src;
-      img.className = "thumb";
-      img.onclick = function () { swapImage(this); };
-      thumbsContainer.appendChild(img);
+const thumbsContainer = document.getElementById("thumbnails");
+if (thumbsContainer) {
+  thumbsContainer.innerHTML = "";
+
+  // zawsze najpierw mainImage, potem thumbs w kolejności
+  const allThumbs = [product.mainImage, ...product.thumbs];
+
+  allThumbs.forEach((src, index) => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.className = "thumb";
+    if (index === 0) img.classList.add("active"); // podświetl main
+
+    img.addEventListener("click", () => {
+      const mainImage = document.getElementById("mainImage");
+      if (mainImage) {
+        mainImage.src = src;
+      }
+
+      // podświetlenie aktywnej
+      document.querySelectorAll(".thumb").forEach(t => t.classList.remove("active"));
+      img.classList.add("active");
     });
-  }
+
+    thumbsContainer.appendChild(img);
+  });
+}
+
 
   const select = document.getElementById("color");
   if (select && id) {

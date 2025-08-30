@@ -36,11 +36,7 @@
 body {
   font-family: Arial, sans-serif;
 }
-.preload {
-  background: url("images/categories/catcan-hover.webp") no-repeat -9999px -9999px;
-  background: url("images/categories/catdiff-hover.webp") no-repeat -9999px -9999px;
-  background: url("images/categories/catpack-hover.webp") no-repeat -9999px -9999px;
-}
+
 
 .header {
   position: sticky;
@@ -739,6 +735,7 @@ font-family: 'roboto';
   height: 550px;
   width: 550px;
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 /* Domyślne obrazki */
@@ -754,18 +751,7 @@ font-family: 'roboto';
   content: url("images/categories/catpack.webp");
 }
 
-/* Obrazki po hoverze */
-.cat-img:nth-child(1):hover .category-image {
-  content: url("images/categories/catcan2.webp");
-}
 
-.cat-img:nth-child(2):hover .category-image {
-  content: url("images/categories/catdiff2.webp");
-}
-
-.cat-img:nth-child(3):hover .category-image {
-  content: url("images/categories/catpack2.webp");
-}
 
 
 .cat-img:hover .underline {
@@ -788,12 +774,21 @@ font-family: 'roboto';
   font-size: 30px;
   font-family: 'IBM Plex Mono', monospace;
 }
+.cat-img h3 {
+  transition: text-decoration 0.3s ease;
+  text-decoration: none;
+}
+
+.cat-img:hover h3 {
+  text-decoration: underline;
+}
 
 .with-underline {
   display: inline-block;
   position: relative;
   text-align: center;
   font-family: 'IBM Plex Mono', monospace;
+  text-decoration: underline;
 
 
 }
@@ -1457,7 +1452,7 @@ body{
 }
 @media (max-width: 768px) {
   .search-results {
-    position: absolute;   /* zamiast fixed – dopasuje się do headera */
+    position: fixed;   /* zamiast fixed – dopasuje się do headera */
     top: 200px;            /* trochę niżej od inputa */
     left: 0;
     width: 100%;
@@ -1479,5 +1474,20 @@ body{
     color: #666;
     font-style: italic;
     padding: 20px;
+  }
+}
+@media (min-width: 1000px) {
+  .products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px; /* możesz dopasować */
+    margin: 0 auto 100px auto;
+    padding: 20px;
+  }
+
+  .product_item {
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
