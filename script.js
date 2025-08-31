@@ -765,26 +765,33 @@ window.addEventListener("resize", () => {
 document.addEventListener("DOMContentLoaded", function () {
   const url = window.location.pathname;
   const isProductPage = url.includes("produkt.html");
+  const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
+
 
   if (isProductPage) {
     const params = new URLSearchParams(window.location.search);
     const category = params.get("category");
     const backLink = document.getElementById("backToCategory");
 
-    if (backLink && category) {
-      // Mapowanie kategorii na czytelne nazwy
-      const categoryNames = {
-        candles: "Świece",
-        diffuzers: "Dyfuzory",
-        packages: "Zestawy"
-      };
+if (backLink && productId) {
+  const product = products[productId];
+  if (product) {
+    const category = product.category;
+    const categoryNames = {
+      candles: "Świece",
+      diffuzers: "Dyfuzory",
+      packages: "Zestawy"
+    };
 
-      const categoryLabel = categoryNames[category] || category;
+    const categoryLabel = categoryNames[category] || category;
 
-      backLink.href = `catalog.html?category=${category}`;
-      backLink.innerHTML = `<i class="fas fa-undo"></i> <span style="font-family: 'CutiveMono', monospace; font-weight: 600; font-size: 19px;"><b>Powrót do kategorii: ${categoryLabel}</b></span>`;
-      backLink.style.display = "inline-block";
-    }
+    backLink.href = `catalog.html?category=${category}`;
+    backLink.innerHTML = `<i class="fas fa-undo"></i> <span style="font-family: 'CutiveMono', monospace; font-weight: 600; font-size: 19px;"><b>Powrót do kategorii: ${categoryLabel}</b></span>`;
+    backLink.style.display = "inline-block";
+  }
+}
+
   }
 });
 
