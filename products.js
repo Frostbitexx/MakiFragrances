@@ -379,7 +379,7 @@ window.products = {
   },
   "prod22": {
     "category": "diffuzers",
-    "name": "Reed diffuser",
+    "name": "REED DIFFUZER",
     "productSubtitle": "\"Aged Library\" w kolorze bursztynowym",
     "subtitle": "Aged Library",
     "subtitle2": "(bursztynowy)",

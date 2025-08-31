@@ -92,12 +92,15 @@
   <input type="hidden" name="orderNumber" id="orderNumberInput">
   <input type="hidden" name="orderSummary" id="orderSummaryInput">
   <input type="hidden" name="orderTotal" id="orderTotalInput">
+  <input type="hidden" name="orderGrandTotal" id="orderGrandTotalInput">
 
   <!-- Widoczne podsumowanie zamówienia -->
    <div style="  line-height: 1.5;">
   <p><strong>Numer zamówienia:</strong> <span id="orderNumberDisplay"></span></p>
   <p><strong>Produkty:</strong> <span id="orderSummaryDisplay"></span></p>
   <p><strong>Łączna wartość:</strong> <span id="orderTotalDisplay"></span> zł</p>
+  <p><strong>Razem z dostawą:</strong> <span id="orderGrandTotalDisplay"></span> zł</p>
+
 </div>
   <!-- Dane klienta -->
   <label>Imię i nazwisko*<br>
@@ -123,7 +126,7 @@
 
 <div class="dedication-wrapper">
   <div class="dedication-instax">
-    <img src="images/dedication-img.webp" alt="Instax dedykacja">
+    <img src="images/dedication-img.WEBP" alt="Instax dedykacja">
     <textarea 
       name="dedication" 
       rows="2" 
@@ -135,21 +138,44 @@
 <label>Wybierz rodzaj opakowania dla swojego zamówienia:</label>
 <div class="package-container">
   <label class="package-option">
-    <img src="images/black.webp" alt="Czarne opakowanie">
+    <img src="images/black.WEBP" alt="Czarne opakowanie">
     <div>
       <input type="radio" name="package" value="czarne" required> Czarne
     </div>
   </label>
 
   <label class="package-option">
-    <img src="images/kraft.webp" alt="Kraftowe opakowanie">
+    <img src="images/kraft.WEBP" alt="Kraftowe opakowanie">
     <div>
       <input type="radio" name="package" value="Kraftowe" required> Kraftowe
     </div>
   </label>
 </div>
+<label>Wybierz formę dostawy:</label>
+<div class="delivery-container">
+  <label class="delivery-option">
+    <input type="radio" name="delivery" value="kurier" required> Kurier (pod adres z formularza)
+  </label><br>
+
+  <label class="delivery-option">
+    <input type="radio" name="delivery" value="paczkomat"> Paczkomat InPost
+  </label>
+</div>
+
+<!-- ukryte pole na paczkomat -->
+<div id="paczkomatField" class="paczkomat-field" style="display:none;">
+  <label>Podaj kod paczkomatu (np. WAW123):<br>
+<input type="text" name="paczkomat_code" id="paczkomatInput" placeholder="Kod paczkomatu">
+
+  </label>
+  <p style="font-size:0.85rem;">
+    👉 <a style="color:black;" href="https://inpost.pl/znajdz-paczkomat" target="_blank">Znajdź swój paczkomat tutaj</a>
+  </p>
+
+</div>
+
   <label>
-    <input type="checkbox" name="rodo" required> Zapoznałem się z polityką prywatności, RODO oraz regulaminem
+    <input type="checkbox" name="rodo" required style="margin-top: 20px;"> Zapoznałem się z polityką prywatności, RODO oraz regulaminem
   </label><br><br>
 
   <button type="submit">Złóż zamówienie</button>
@@ -186,8 +212,8 @@
     </a>
 </div>
 <div class="footer-right">
-<span>Potrzebujesz indywidualnego zamówienia ?</span><br/>
-<span>Chcesz się skontaktować w sprawie swoich zakupów ?</span><br/>
+<span>Potrzebujesz indywidualnego zamówienia?</span><br/>
+<span>Chcesz się skontaktować w sprawie swoich zakupów?</span><br/>
 <span>Napisz do nas email: <a id="emailLink" href="mailto:MakiCandles@gmail.com">MakiCandles@gmail.com</a></span><br/>
 
 </div>

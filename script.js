@@ -87,13 +87,14 @@ function renderProducts() {
   product.category === "packages"
     ? (
         product.setType === "set3"
-          ? "Set of 3 candles"
+          ? "SET OF 3 CANDLES"
           : product.setType === "set2+1"
-            ? "CandleS(2) & Diffuser Set"
-            : "Candle & Diffuser Set"
+            ? "CANDLES(2) & DIFFUSER SET"
+            : "CANDLE & DIFFUSER SET"
       )
-    : product.name
+    : product.name.toUpperCase()
 }</h3>
+
 
 
 
@@ -143,13 +144,14 @@ function renderCatalogFiltered(selectedCategory) {
   product.category === "packages"
     ? (
         product.setType === "set3"
-          ? "Set of 3 candles"
+          ? "SET OF 3 CANDLES"
           : product.setType === "set2+1"
-            ? "CandleS(2) & Diffuser Set"
-            : "Candle & Diffuser Set"
+            ? "CANDLES(2) & DIFFUSER SET"
+            : "CANDLE & DIFFUSER SET"
       )
-    : product.name
+    : product.name.toUpperCase()
 }</h3>
+
 
 
       <hr class="hr">
@@ -222,13 +224,27 @@ if (isCatalogPage) {
 
     summary = summary.slice(0, -2);
 
-    displayNumber.innerText = orderNumber;
-    displaySummary.innerText = summary;
-    displayTotal.innerText = total.toFixed(2);
+// koszt dostawy
+const deliveryCost = 20;
+const grandTotal = total + deliveryCost;
 
-    inputNumber.value = orderNumber;
-    inputSummary.value = summary;
-    inputTotal.value = total.toFixed(2);
+displayNumber.innerText = orderNumber;
+displaySummary.innerText = summary;
+displayTotal.innerText = total.toFixed(2);
+
+// nowa linia: razem z dostawą
+const displayGrandTotal = document.getElementById("orderGrandTotalDisplay");
+const inputGrandTotal = document.getElementById("orderGrandTotalInput");
+
+if (displayGrandTotal && inputGrandTotal) {
+  displayGrandTotal.innerText = grandTotal.toFixed(2);
+  inputGrandTotal.value = grandTotal.toFixed(2);
+}
+
+inputNumber.value = orderNumber;
+inputSummary.value = summary;
+inputTotal.value = total.toFixed(2); // to zostawiamy jako suma produktów (może być przydatne)
+
   }
 });
 
@@ -251,13 +267,21 @@ if (isCatalogPage) {
   const mainImg = document.querySelector(".product-main-img");
   if (mainImg) mainImg.src = product.mainImage;
 
-  const titleEl = document.querySelector(".product-title");
-  if (titleEl) {
-    titleEl.innerText = product.name;
-    if (product.category === "packages") {
-      titleEl.style.fontSize = "20px";
-    }
+const titleEl = document.querySelector(".product-title");
+if (titleEl) {
+  if (product.category === "packages") {
+    titleEl.innerText =
+      product.setType === "set3"
+        ? "SET OF 3 CANDLES"
+        : product.setType === "set2+1"
+          ? "CANDLES(2) & DIFFUSER SET"
+          : "CANDLE & DIFFUSER SET";
+    titleEl.style.fontSize = "20px";
+  } else {
+    titleEl.innerText = product.name.toUpperCase();
   }
+}
+
 
   const subtitleEl = document.querySelector(".product-subtitle");
   if (subtitleEl) subtitleEl.innerText = product.productSubtitle;
@@ -386,7 +410,17 @@ cartItemsDiv.innerHTML += `
 
     });
 
-    cartTotalDiv.innerText = `Suma: ${total.toFixed(2)} zł`;
+      // koszt dostawy
+  const deliveryCost = 20;
+  const grandTotal = total + deliveryCost;
+
+  cartTotalDiv.innerHTML = `
+    <p style="line-height: 1.5;">Suma produktów: ${total.toFixed(2)} zł</p>
+    <p style="line-height: 1.5;">Dostawa: ${deliveryCost.toFixed(2)} zł</p>
+    <hr style="border:none; border-top:1px solid #ddd;">
+    <p style="line-height: 1.5;">Razem do zapłaty: ${grandTotal.toFixed(2)} zł</p>
+  `;
+
   }
 
   // helpery do zapisu i przeładowania
@@ -445,7 +479,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const formData = new FormData(form);
 
-      fetch("https://script.google.com/macros/s/AKfycbzLuSGaJHL_WI1O89FiEoJJBvL9daAVl4rjlHwelVBCksb97ZGDGtPPoI_hW4WlDx2p/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbwQoxWecCjgRBIO7tce6cxXG5kYQeb3BRmZmwvbxEvB8dV1FPth0suFFX6r9_6MDS1R/exec", {
         method: "POST",
         body: formData
       })
@@ -744,6 +778,30 @@ document.addEventListener("DOMContentLoaded", function () {
       backLink.innerHTML = `<i class="fas fa-undo"></i> <span style="font-family: 'CutiveMono', monospace; font-weight: 600; font-size: 19px;"><b>Powrót do kategorii: ${categoryLabel}</b></span>`;
       backLink.style.display = "inline-block";
     }
+  }
+});
+
+// ========================
+// Obsługa wyboru dostawy (kurier/paczkomat)
+// ========================
+document.addEventListener("DOMContentLoaded", function () {
+  const deliveryOptions = document.querySelectorAll('input[name="delivery"]');
+  const paczkomatField = document.getElementById("paczkomatField");
+  const paczkomatInput = document.getElementById("paczkomatInput");
+
+  if (deliveryOptions.length && paczkomatField && paczkomatInput) {
+    deliveryOptions.forEach(option => {
+      option.addEventListener("change", () => {
+        if (option.value === "paczkomat" && option.checked) {
+          paczkomatField.style.display = "block";
+          paczkomatInput.required = true;   // teraz wymagane
+        } else if (option.value === "kurier" && option.checked) {
+          paczkomatField.style.display = "none";
+          paczkomatInput.required = false;  // wyłączamy wymagane
+          paczkomatInput.value = "";        // czyścimy wartość
+        }
+      });
+    });
   }
 });
 
