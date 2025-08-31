@@ -213,14 +213,21 @@ if (isCatalogPage) {
     let summary = "";
     let total = 0;
 
-    cart.forEach(item => {
-      const product = products[item.id];
-      if (product) {
-        const itemTotal = product.price * item.qty;
-        total += itemTotal;
-        summary += `${product.name} (${product.productSubtitle}) x${item.qty}, `;
-      }
-    });
+cart.forEach(item => {
+  const product = products[item.id];
+  if (product) {
+    const itemTotal = product.price * item.qty;
+    total += itemTotal;
+
+    // Budowanie pełnej nazwy produktu
+    let fullName = product.name;
+    if (product.subtitle) fullName += " – " + product.subtitle;
+    if (product.subtitle2) fullName += " " + product.subtitle2;
+
+    summary += `${fullName} x${item.qty}, `;
+  }
+});
+
 
     summary = summary.slice(0, -2);
 
