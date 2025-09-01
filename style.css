@@ -1489,8 +1489,8 @@ body{
 }
 @media (max-width: 768px) {
   .search-results {
-    position: fixed;   /* zamiast fixed – dopasuje się do headera */
-    top: 200px;            /* trochę niżej od inputa */
+    position: fixed;  
+    top: 125px;            /* trochę niżej od inputa */
     left: 0;
     width: 100%;
     max-height: 60vh;     /* przewijanie na 60% wysokości ekranu */
