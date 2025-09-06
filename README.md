@@ -1,1 +1,1 @@
-Project of a web store Maki Candles.
+Project of a web store Maki Fragrances.
