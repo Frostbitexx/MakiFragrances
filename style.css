@@ -84,6 +84,7 @@ body {
   border-bottom: #dbdbdb 1px solid;
   padding: 5px 10px;
   position: relative;
+  height:50%;
 }
 .search-bar i {
   color: #000000;
@@ -147,7 +148,8 @@ body {
 
 /* MENU */
 .menu {
-  padding:15px;
+  padding:10px;
+  height: 50%;
   
 }
 
