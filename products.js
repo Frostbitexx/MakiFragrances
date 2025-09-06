@@ -549,7 +549,7 @@ window.products = {
     "price": 160,
     "desc": "Zapach starego domu, w którym czas się zatrzymał. Drewniane podłogi cicho skrzypią, a w powietrzu unoszą się nuty skóry, ciepłego cedru i drzewa sandałowego. Delikatny akcent piżma i paczuli otula wszystko spokojem. Jak powrót do domu babci — pełnego książek, wspomnień i kojącej ciszy.",
     "about": "Świeca:\nCzas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nDyfuzor:\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Świeca:\nWosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor:\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/whitepack/main.webp",
     "thumbs": [
       "images/whitepack/thumb1.webp",
@@ -566,7 +566,7 @@ window.products = {
     "price": 174,
     "desc": "Zapach starego domu, w którym czas się zatrzymał. Drewniane podłogi cicho skrzypią, a w powietrzu unoszą się nuty skóry, ciepłego cedru i drzewa sandałowego. Delikatny akcent piżma i paczuli otula wszystko spokojem. Jak powrót do domu babci — pełnego książek, wspomnień i kojącej ciszy.",
     "about": "Świeca:\nCzas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nDyfuzor:\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Świeca:\nWosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor:\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/amberpack/main.webp",
     "thumbs": [
       "images/amberpack/thumb1.webp",
@@ -583,7 +583,7 @@ window.products = {
     "price": 160,
     "desc": "Czysty i ciepły zapach, jak świeże powietrze nad polem lawendy w letni wieczór. Naturalna lawenda z lekką cytrusową nutą bergamotki, odrobiną cedru i miękkiego piżma w tle. Spokojny, delikatny aromat, który pomaga się wyciszyć i poczuć jak w domu.",
     "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/whitepack/main.webp",
     "thumbs": [
       "images/whitepack/thumb1.webp",
@@ -600,7 +600,7 @@ window.products = {
     "price": 174,
     "desc": "Czysty i ciepły zapach, jak świeże powietrze nad polem lawendy w letni wieczór. Naturalna lawenda z lekką cytrusową nutą bergamotki, odrobiną cedru i miękkiego piżma w tle. Spokojny, delikatny aromat, który pomaga się wyciszyć i poczuć jak w domu.",
     "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/amberpack/main.webp",
     "thumbs": [
       "images/amberpack/thumb1.webp",
@@ -617,7 +617,7 @@ window.products = {
     "price": 160,
     "desc": "Świeży, ciepły i nastrojowy zapach o leśnym charakterze. Ziemisty mech dębowy i delikatna ambra tworzą wrażenie ciszy pod koronami drzew, a miękkie nuty cedru, drzewa sandałowego i piżma dodają głębi i przytulności. Ten zapach przypomina spacer po wilgotnym lesie — spokojny i naprawdę bliski sercu. Czysty, intensywny, drzewny — idealny wybór dla tych, którzy cenią sobie ciepłą, naturalną atmosferę.",
     "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/whitepack/main.webp",
     "thumbs": [
       "images/whitepack/thumb1.webp",
@@ -634,7 +634,7 @@ window.products = {
     "price": 174,
     "desc": "Świeży, ciepły i nastrojowy zapach o leśnym charakterze. Ziemisty mech dębowy i delikatna ambra tworzą wrażenie ciszy pod koronami drzew, a miękkie nuty cedru, drzewa sandałowego i piżma dodają głębi i przytulności. Ten zapach przypomina spacer po wilgotnym lesie — spokojny i naprawdę bliski sercu. Czysty, intensywny, drzewny — idealny wybór dla tych, którzy cenią sobie ciepłą, naturalną atmosferę.",
     "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/amberpack/main.webp",
     "thumbs": [
       "images/amberpack/thumb1.webp",
@@ -651,7 +651,7 @@ window.products = {
     "price": 160,
     "desc": "Wyrazisty i intrygujący zapach, jak tajemniczy wieczór z lekką nutą niedopowiedzenia. Połączenie soczystej czarnej porzeczki, kwiatowych nut szałwii i anyżu tworzy wyjątkową, słodko-pikantną świeżość, którą łagodzą ciemne piżmo i fasola tonka. Idealny dla tych, którzy szukają czegoś nieoczywistego, głębokiego i urzekającego — trwały, ciepły, z charakterem.",
     "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/whitepack/main.webp",
     "thumbs": [
       "images/whitepack/thumb1.webp",
@@ -668,7 +668,7 @@ window.products = {
     "price": 174,
     "desc": "Wyrazisty i intrygujący zapach, jak tajemniczy wieczór z lekką nutą niedopowiedzenia. Połączenie soczystej czarnej porzeczki, kwiatowych nut szałwii i anyżu tworzy wyjątkową, słodko-pikantną świeżość, którą łagodzą ciemne piżmo i fasola tonka. Idealny dla tych, którzy szukają czegoś nieoczywistego, głębokiego i urzekającego — trwały, ciepły, z charakterem.",
     "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/amberpack/main.webp",
     "thumbs": [
       "images/amberpack/thumb1.webp",
@@ -685,7 +685,7 @@ window.products = {
     "price": 160,
     "desc": "Zapach starego pokoju, w którym wszystko przesiąknięte jest czasem: skórzany fotel, drewniany stół i lekki ślad tytoniu w powietrzu. Żywiczny labdanum, bergamotka i przyprawy rozwijają się łagodnie i spokojnie, a skóra i ambra nadają głębi i charakteru. Ciepły, nasycony i lekko tajemniczy — dla tych, którzy cenią ciszę i atmosferę.",
     "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/whitepack/main.webp",
     "thumbs": [
       "images/whitepack/thumb1.webp",
@@ -702,7 +702,7 @@ window.products = {
     "price": 174,
     "desc": "Zapach starego pokoju, w którym wszystko przesiąknięte jest czasem: skórzany fotel, drewniany stół i lekki ślad tytoniu w powietrzu. Żywiczny labdanum, bergamotka i przyprawy rozwijają się łagodnie i spokojnie, a skóra i ambra nadają głębi i charakteru. Ciepły, nasycony i lekko tajemniczy — dla tych, którzy cenią ciszę i atmosferę.",
     "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.\n\nTrwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
-    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nMMB, AUGEO, kompozycja zapachowa.",
+    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.\n\nDyfuzor - MMB, AUGEO, kompozycja zapachowa.",
     "mainImage": "images/amberpack/main.webp",
     "thumbs": [
       "images/amberpack/thumb1.webp",
@@ -822,7 +822,7 @@ window.products = {
     "price": 195,
     "desc": "Leather & Labdanum - Zapach starego pokoju, w którym wszystko przesiąknięte jest czasem: skórzany fotel, drewniany stół i lekki ślad tytoniu w powietrzu. Żywiczny labdanum, bergamotka i przyprawy rozwijają się łagodnie i spokojnie, a skóra i ambra nadają głębi i charakteru. Ciepły, nasycony i lekko tajemniczy — dla tych, którzy cenią ciszę i atmosferę.\n\nTonka & Oud - Ciepły i intensywny zapach z delikatną nutą dymu. Na początku czuć słodycz tonki — jak migdały lub tytoń, potem pojawiają się głębokie, drzewne akcenty oudu i odrobina przypraw. Jest w nim coś z wnętrza starego kościoła — drewno, kadzidło, a zarazem przytulność wieczoru z kieliszkiem czegoś mocniejszego. Zapach z charakterem: ciepły, spokojny i zapadający w pamięć.\n\nPalo santo & Sandalwood - Zapach ciepłego drewna, lekkiego dymu i spokoju. Palo Santo wnosi nutę kadzidła i mirry, a drzewo sandałowe dodaje miękkości i głębi. Często opisywany jako „czysty, przytulny i dobrze zbalansowany” — pasuje zarówno do wnętrz, jak i do chwil tylko dla siebie. Przypomina pokój ogrzany drewnem, w którym można po prostu odetchnąć.",
     "about": "Czas palenia świecy wynosi do 45 godzin.\nPrzed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
-    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
+    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "mainImage": "images/whiteset/main.webp",
     "thumbs": [
       "images/whiteset/thumb1.webp"
@@ -839,7 +839,7 @@ window.products = {
     "price": 235,
     "desc": "Leather & Labdanum - Zapach starego pokoju, w którym wszystko przesiąknięte jest czasem: skórzany fotel, drewniany stół i lekki ślad tytoniu w powietrzu. Żywiczny labdanum, bergamotka i przyprawy rozwijają się łagodnie i spokojnie, a skóra i ambra nadają głębi i charakteru. Ciepły, nasycony i lekko tajemniczy — dla tych, którzy cenią ciszę i atmosferę.\n\nTonka & Oud - Ciepły i intensywny zapach z delikatną nutą dymu. Na początku czuć słodycz tonki — jak migdały lub tytoń, potem pojawiają się głębokie, drzewne akcenty oudu i odrobina przypraw. Jest w nim coś z wnętrza starego kościoła — drewno, kadzidło, a zarazem przytulność wieczoru z kieliszkiem czegoś mocniejszego. Zapach z charakterem: ciepły, spokojny i zapadający w pamięć.\n\nPalo santo & Sandalwood - Zapach ciepłego drewna, lekkiego dymu i spokoju. Palo Santo wnosi nutę kadzidła i mirry, a drzewo sandałowe dodaje miękkości i głębi. Często opisywany jako „czysty, przytulny i dobrze zbalansowany” — pasuje zarówno do wnętrz, jak i do chwil tylko dla siebie. Przypomina pokój ogrzany drewnem, w którym można po prostu odetchnąć.",
     "about": "Czas palenia świecy wynosi do 55 godzin.\nPrzed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
-    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
+    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "mainImage": "images/amberset/main.webp",
     "thumbs": [
       "images/amberset/thumb1.webp"
@@ -856,7 +856,7 @@ window.products = {
     "price": 195,
     "desc": "Aged Library - Zapach starego domu, w którym czas się zatrzymał. Drewniane podłogi cicho skrzypią, a w powietrzu unoszą się nuty skóry, ciepłego cedru i drzewa sandałowego. Delikatny akcent piżma i paczuli otula wszystko spokojem. Jak powrót do domu babci — pełnego książek, wspomnień i kojącej ciszy.\n\nTomato Leaf - Zapach, który rozpoznajesz od razu: zielone liście, wilgotna ziemia i ciepło porannego słońca. Jak wakacje u babci, szklarnia po podlaniu i to uczucie, że przed tobą całe lato. Naturalny, świeży i aż boleśnie znajomy.\n\nLeather - Intensywny, ale czysty zapach skóry — jak ulubiona skórzana kurtka lub fotel w starym gabinecie. Górne nuty lekko pikantne i dymne zwiastują charakter, serce z nuty skóry i ciepłej ambry zapewnia poczucie pewności i przytulności. Dla tych, którzy cenią zapach prawdziwej skóry, bez przesłodzenia.",
     "about": "Czas palenia świecy wynosi do 45 godzin.\nPrzed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
-    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
+    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "mainImage": "images/whiteset/main.webp",
     "thumbs": [
       "images/whiteset/thumb1.webp"
@@ -873,7 +873,7 @@ window.products = {
     "price": 235,
     "desc": "Aged Library - Zapach starego domu, w którym czas się zatrzymał. Drewniane podłogi cicho skrzypią, a w powietrzu unoszą się nuty skóry, ciepłego cedru i drzewa sandałowego. Delikatny akcent piżma i paczuli otula wszystko spokojem. Jak powrót do domu babci — pełnego książek, wspomnień i kojącej ciszy.\n\nTomato Leaf - Zapach, który rozpoznajesz od razu: zielone liście, wilgotna ziemia i ciepło porannego słońca. Jak wakacje u babci, szklarnia po podlaniu i to uczucie, że przed tobą całe lato. Naturalny, świeży i aż boleśnie znajomy.\n\nLeather - Intensywny, ale czysty zapach skóry — jak ulubiona skórzana kurtka lub fotel w starym gabinecie. Górne nuty lekko pikantne i dymne zwiastują charakter, serce z nuty skóry i ciepłej ambry zapewnia poczucie pewności i przytulności. Dla tych, którzy cenią zapach prawdziwej skóry, bez przesłodzenia.",
     "about": "Czas palenia świecy wynosi do 55 godzin.\nPrzed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
-    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
+    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "mainImage": "images/amberset/main.webp",
     "thumbs": [
       "images/amberset/thumb1.webp"
@@ -890,7 +890,7 @@ window.products = {
     "price": 195,
     "desc": "Lavender - Czysty i ciepły zapach, jak świeże powietrze nad polem lawendy w letni wieczór. Naturalna lawenda z lekką cytrusową nutą bergamotki, odrobiną cedru i miękkiego piżma w tle. Spokojny, delikatny aromat, który pomaga się wyciszyć i poczuć jak w domu.\n\nBlackberry Absinthe - Wyrazisty i intrygujący zapach, jak tajemniczy wieczór z lekką nutą niedopowiedzenia. Połączenie soczystej czarnej porzeczki, kwiatowych nut szałwii i anyżu tworzy wyjątkową, słodko-pikantną świeżość, którą łagodzą ciemne piżmo i fasola tonka. Idealny dla tych, którzy szukają czegoś nieoczywistego, głębokiego i urzekającego — trwały, ciepły, z charakterem.\n\nAmber Moss - Świeży, ciepły i nastrojowy zapach o leśnym charakterze. Ziemisty mech dębowy i delikatna ambra tworzą wrażenie ciszy pod koronami drzew, a miękkie nuty cedru, drzewa sandałowego i piżma dodają głębi i przytulności. Ten zapach przypomina spacer po wilgotnym lesie — spokojny i naprawdę bliski sercu. Czysty, intensywny, drzewny — idealny wybór dla tych, którzy cenią sobie ciepłą, naturalną atmosferę.",
     "about": "Czas palenia świecy wynosi do 45 godzin.\nPrzed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
-    "ingredients": "Świeca sojowa - Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
+    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "mainImage": "images/whiteset/main.webp",
     "thumbs": [
       "images/whiteset/thumb1.webp"
