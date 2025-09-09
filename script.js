@@ -37,7 +37,105 @@ function addToCart(event) {
 
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
+  openSideCartPanel(id, qty);
 }
+// === SIDE CART (panel po dodaniu do koszyka) ===
+function ensureSideCartPanel() {
+
+
+  // jeśli już jest – nic nie rób
+  if (document.querySelector('.side-cart')) return;
+
+  // tło
+  const overlay = document.createElement('div');
+  overlay.className = 'overlay-dim';
+  overlay.addEventListener('click', closeSideCartPanel);
+
+  // panel
+  const panel = document.createElement('aside');
+  panel.className = 'side-cart';
+  panel.innerHTML = `
+    <div class="side-cart-header">
+      <span>Produkt dodany do koszyka:</span>
+      <button class="side-cart-close" aria-label="Zamknij" title="Zamknij">×</button>
+    </div>
+    <div class="side-cart-body"></div>
+    <div class="side-cart-actions">
+      <button class="btn btn-secondary" id="sideCartContinue">Kontynuuj zakupy</button>
+      <button class="btn btn-primary" id="sideCartGoCart">Przejdź do koszyka</button>
+    </div>
+  `;
+
+  panel.querySelector('.side-cart-close').addEventListener('click', closeSideCartPanel);
+  panel.querySelector('#sideCartContinue').addEventListener('click', closeSideCartPanel);
+  panel.querySelector('#sideCartGoCart').addEventListener('click', () => {
+    window.location.href = 'koszyk.html';
+  });
+
+  document.body.appendChild(overlay);
+  document.body.appendChild(panel);
+
+  // ESC zamyka
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSideCartPanel();
+  });
+}
+
+function openSideCartPanel(productId, qty) {
+  ensureSideCartPanel();
+
+  const overlay = document.querySelector('.overlay-dim');
+  const panel   = document.querySelector('.side-cart');
+  const bodyEl  = document.querySelector('.side-cart-body');
+  const product = products?.[productId];
+
+  // fallback na qty
+  const quantity = Math.max(1, parseInt(qty || 1));
+
+  // bez produktu — tylko informacja (nie powinno się zdarzyć, bo wszędzie używamy products)
+  if (!product) {
+    bodyEl.innerHTML = `<p>Dodano do koszyka.</p>`;
+  } else {
+    const lineTotal = (product.price * quantity).toFixed(2);
+    const title = product.category === 'packages'
+      ? (product.setType === 'set3' ? 'SET OF 3 CANDLES'
+         : product.setType === 'set2+1' ? 'CANDLES(2) & DIFFUSER SET'
+         : 'CANDLE & DIFFUSER SET')
+      : (product.name || '');
+
+    const subtitle = product.productSubtitle || product.subtitle || '';
+    const imgSrc   = product.images?.[0] || product.mainImage;
+
+    bodyEl.innerHTML = `
+      <div class="side-cart-product">
+        <img src="${imgSrc}" alt="${title}">
+        <div>
+          <div class="side-cart-title">${title}</div>
+          <div class="side-cart-sub">${subtitle} ${product.weight}</div>
+          <div class="side-cart-line">Ilość: <b>${quantity}</b></div>
+          <div class="side-cart-line">Cena: <b>${product.price.toFixed(2)} zł</b></div>
+          <div class="side-cart-summary">Razem: ${lineTotal} zł</div>
+        </div>
+      </div>
+    `;
+  }
+
+  // pokaż
+  overlay.classList.add('show');
+  panel.classList.add('open');
+  document.body.classList.add('no-scroll');
+}
+
+function closeSideCartPanel() {
+  const overlay = document.querySelector('.overlay-dim');
+  const panel   = document.querySelector('.side-cart');
+  if (overlay) overlay.classList.remove('show');
+  if (panel)   panel.classList.remove('open');
+  document.body.classList.remove('no-scroll');
+}
+
+// utwórz strukturę panelu po załadowaniu DOM (na każdej stronie)
+document.addEventListener('DOMContentLoaded', ensureSideCartPanel);
 
 // ========================
 // Menu
@@ -99,7 +197,7 @@ function renderProducts() {
 
 
       <hr class="hr">
-      <p class="tile-subtitle">${product.subtitle}</p>
+      <p class="tile-subtitle">${product.subtitle} ${product.weight}</p>
       <p class="tile-subtitle2">${product.subtitle2 || ""}</p>
       <hr class="hr">
       <div class="basket-line">
@@ -155,7 +253,7 @@ function renderCatalogFiltered(selectedCategory) {
 
 
       <hr class="hr">
-      <p class="tile-subtitle">${product.subtitle}</p>
+      <p class="tile-subtitle">${product.subtitle} ${product.weight}</p>
       <p class="tile-subtitle2">${product.subtitle2 || ""}</p>
       <hr class="hr">
       <div class="basket-line">
@@ -408,7 +506,7 @@ cartItemsDiv.innerHTML += `
               : product.name
           } (x${item.qty})</span>
           <span class="cart-price">${product.price.toFixed(2)} zł / ${itemTotal.toFixed(2)} zł</span>
-          <p class="cart-subtitle">${product.productSubtitle}</p>
+          <p class="cart-subtitle">${product.productSubtitle}  ${product.weight}</p>
         </div>
       </a>
     </div>
