@@ -1713,3 +1713,16 @@ body.no-scroll { overflow: hidden; }
     margin: 0 auto;
   }
 }
+/* Cookie banner (minimal) */
+.cookie-banner {
+  position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 10000;
+  font-family: 'IBM Plex Mono', monospace; line-height: 1.35;
+}
+.cookie-inner {
+  background: #111; color: #fff; padding: 12px 14px; border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.cookie-actions { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+.cb-btn { padding: 10px 12px; border: 0; cursor: pointer; border-radius: 10px; font-family: inherit; }
+.cb-accept { background: #fff; color: #000; }
+.cb-reject { background: #2c2c2c; color: #fff; border: 1px solid #444; }

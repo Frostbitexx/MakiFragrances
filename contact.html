@@ -2,6 +2,30 @@
 
 <html lang="pl">
 <head>
+    <!-- Google tag (gtag.js) + Consent Mode (domyślnie bez zgody) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4S3F3LLH8D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+
+  // Domyślnie: brak zgody (zgodne z RODO)
+  gtag('consent','default', {
+    ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied'
+  });
+
+  gtag('js', new Date());
+  gtag('config','G-XXXXXXX',{ /* anonymize_ip domyślnie w GA4 */ });
+
+  // Jeśli użytkownik wyraził zgodę wcześniej – przywróć ją z localStorage
+  (function(){
+    try {
+      const c = localStorage.getItem('analytics_consent');
+      if (c === 'granted') {
+        gtag('consent','update',{ analytics_storage:'granted' });
+      }
+    } catch(e){}
+  })();
+</script>
 <link href="images/logo.ico" rel="icon" type="image/x-icon"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <meta charset="utf-8"/>
@@ -80,6 +104,49 @@
 
 
 
+<div id="cookie-banner" class="cookie-banner" style="display:none">
+  <div class="cookie-inner">
+    Używamy tylko anonimowych statystyk (GA4). Zgadzasz się na anonimową analitykę?
+    <div class="cookie-actions">
+      <button id="cookie-accept" class="cb-btn cb-accept">Akceptuję analitykę</button>
+      <button id="cookie-reject" class="cb-btn cb-reject">Tylko niezbędne</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    const key = 'analytics_consent';
+    const banner = document.getElementById('cookie-banner');
+    const accepted = localStorage.getItem(key);
+
+    function hide(){ banner.style.display='none'; }
+    function show(){ banner.style.display='block'; }
+
+    if (!accepted) show();
+
+    document.getElementById('cookie-accept')?.addEventListener('click', function(){
+      try {
+        gtag('consent','update',{ analytics_storage:'granted' });
+        localStorage.setItem(key,'granted');
+      } catch(e){}
+      hide();
+    });
+
+    document.getElementById('cookie-reject')?.addEventListener('click', function(){
+      try {
+        gtag('consent','update',{ analytics_storage:'denied' });
+        localStorage.setItem(key,'denied');
+      } catch(e){}
+      hide();
+    });
+
+    // awaryjne API do zmiany zgody z konsoli
+    window.resetAnalyticsConsent = function(){
+      localStorage.removeItem(key);
+      show();
+    };
+  })();
+</script>
 
 
 

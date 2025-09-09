@@ -36,6 +36,25 @@ function addToCart(event) {
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
+  // GA4: add_to_cart
+try {
+  if (window.gtag && typeof products === "object" && products[id]) {
+    const p = products[id];
+    const quantity = Math.max(1, parseInt(qty || 1));
+    gtag("event", "add_to_cart", {
+      currency: "PLN",
+      value: (p.price || 0) * quantity,
+      items: [{
+        item_id: String(id),
+        item_name: p.name || p.subtitle || "Produkt",
+        item_category: p.category || "",
+        price: p.price || 0,
+        quantity: quantity
+      }]
+    });
+  }
+} catch(e) {}
+
   updateCartCount();
   openSideCartPanel(id, qty);
 }
@@ -917,3 +936,49 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// GA4: begin_checkout przy kliknięciu w link do koszyka
+document.addEventListener("click", function(e) {
+  const a = e.target.closest('a[href$="koszyk.html"]');
+  if (!a) return;
+  try {
+    if (window.gtag) {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const items = cart.map(({id, qty}) => {
+        const p = (typeof products === "object" && products[id]) ? products[id] : {};
+        return {
+          item_id: String(id),
+          item_name: p.name || p.subtitle || String(id),
+          item_category: p.category || "",
+          price: p.price || 0,
+          quantity: Number(qty) || 1
+        };
+      });
+      const total = items.reduce((s,i)=> s + (i.price||0)*(i.quantity||0), 0);
+      gtag("event","begin_checkout", { currency:"PLN", value: total, items });
+    }
+  } catch(e) {}
+});
+
+// GA4: begin_checkout także przy bezpośrednim wejściu na /koszyk.html
+document.addEventListener("DOMContentLoaded", function() {
+  const path = (location.pathname || "").toLowerCase();
+  if (path.endsWith("/koszyk.html") || path.endsWith("koszyk.html")) {
+    try {
+      if (window.gtag) {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const items = cart.map(({id, qty}) => {
+          const p = (typeof products === "object" && products[id]) ? products[id] : {};
+          return {
+            item_id: String(id),
+            item_name: p.name || p.subtitle || String(id),
+            item_category: p.category || "",
+            price: p.price || 0,
+            quantity: Number(qty) || 1
+          };
+        });
+        const total = items.reduce((s,i)=> s + (i.price||0)*(i.quantity||0), 0);
+        gtag("event","begin_checkout", { currency:"PLN", value: total, items });
+      }
+    } catch(e) {}
+  }
+});
