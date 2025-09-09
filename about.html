@@ -108,49 +108,7 @@
 </div>
 
 
-<div id="cookie-banner" class="cookie-banner" style="display:none">
-  <div class="cookie-inner">
-    Używamy tylko anonimowych statystyk (GA4). Zgadzasz się na anonimową analitykę?
-    <div class="cookie-actions">
-      <button id="cookie-accept" class="cb-btn cb-accept">Akceptuję analitykę</button>
-      <button id="cookie-reject" class="cb-btn cb-reject">Tylko niezbędne</button>
-    </div>
-  </div>
-</div>
-<script>
-  (function(){
-    const key = 'analytics_consent';
-    const banner = document.getElementById('cookie-banner');
-    const accepted = localStorage.getItem(key);
-
-    function hide(){ banner.style.display='none'; }
-    function show(){ banner.style.display='block'; }
-
-    if (!accepted) show();
-
-    document.getElementById('cookie-accept')?.addEventListener('click', function(){
-      try {
-        gtag('consent','update',{ analytics_storage:'granted' });
-        localStorage.setItem(key,'granted');
-      } catch(e){}
-      hide();
-    });
-
-    document.getElementById('cookie-reject')?.addEventListener('click', function(){
-      try {
-        gtag('consent','update',{ analytics_storage:'denied' });
-        localStorage.setItem(key,'denied');
-      } catch(e){}
-      hide();
-    });
-
-    // awaryjne API do zmiany zgody z konsoli
-    window.resetAnalyticsConsent = function(){
-      localStorage.removeItem(key);
-      show();
-    };
-  })();
-</script>
+ 
 
 
 </body>
