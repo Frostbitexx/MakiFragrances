@@ -1744,3 +1744,34 @@ body.no-scroll { overflow: hidden; }
 .cb-btn { padding: 10px 12px; border: 0; cursor: pointer; border-radius: 10px; font-family: inherit; }
 .cb-accept { background: #fff; color: #000; }
 .cb-reject { background: #2c2c2c; color: #fff; border: 1px solid #444; }
+/* --- Availability UI --- */
+.badge-unavail {
+  position: absolute;
+  top: 10px; left: 10px;
+  z-index: 3;
+  background: #111;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: .3px;
+}
+
+/* kafelek w katalogu, gdy brak dostępności */
+.product_item.unavailable { opacity: .9; }
+.product_item.unavailable .min-basket { display: none; } /* ukryj mały koszyczek */
+
+/* strona produktu – ramka z info zamiast przycisku */
+.product-unavail-note {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #ffe9e9;
+  border: 1px solid #f5caca;
+  color: #7a1c1c;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* żeby plakietka dobrze usiadła przy zdjęciu na stronie produktu */
+.image-viewer { position: relative; }

@@ -1,6 +1,16 @@
 // ========================
 // Licznik koszyka
 // ========================
+
+function isAvailable(product) {
+  if (!product) return true;
+  const v = product.availability;
+  if (typeof v === "boolean") return v;
+  if (v == null) return true; // brak pola = dostępny
+  const s = String(v).toLowerCase();
+  return !["no","nie","false","0","out","niedostępny","niedostepny"].includes(s);
+}
+
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -33,6 +43,11 @@ function addToCart(event) {
     existing.qty += qty;
   } else {
     cart.push({ id, qty });
+  }
+  const p = (typeof products === "object") ? products[id] : null;
+  if (p && !isAvailable(p)) {
+    alert("Produkt jest tymczasowo niedostępny.");
+    return;
   }
 
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -173,6 +188,8 @@ function renderProducts() {
       location.href = `produkt.html?id=${id}&category=${product.category}`;
     };
 
+    const available = isAvailable(product);
+    if (!available) div.classList.add("unavailable");
 
 
     div.innerHTML = `
@@ -182,32 +199,31 @@ function renderProducts() {
           <img src="${product.thumbs?.[0] || product.mainImage}" alt="Zdjęcie 2">
         </div>
       </div>
-<h3 class="tile-title">${
-  product.category === "packages"
-    ? (
-        product.setType === "set3"
-          ? "SET OF 3 CANDLES"
-          : product.setType === "set2+1"
-            ? "CANDLES(2) & DIFFUSER SET"
-            : "CANDLE & DIFFUSER SET"
-      )
-    : product.name.toUpperCase()
-}</h3>
 
+      ${available ? "" : `<span class="badge-unavail">Tymczasowo niedostępny</span>`}
 
-
+      <h3 class="tile-title">${
+        product.category === "packages"
+          ? (product.setType === "set3"
+                ? "SET OF 3 CANDLES"
+                : (product.setType === "set2+1" ? "CANDLES(2) & DIFFUSER SET" : "CANDLE & DIFFUSER SET"))
+          : product.name.toUpperCase()
+      }</h3>
 
       <hr class="hr">
-      <p class="tile-subtitle">${product.subtitle} ${product.weight}</p>
+      <p class="tile-subtitle">${product.subtitle || ""} ${product.weight || ""}</p>
       <p class="tile-subtitle2">${product.subtitle2 || ""}</p>
       <hr class="hr">
+
       <div class="basket-line">
-        <span class="min-basket">
-          <i class="fas fa-cart-arrow-down" data-id="${id}" onclick="addToCart(event)"></i>
-        </span>
+        ${available ? `
+          <span class="min-basket">
+            <i class="fas fa-cart-arrow-down" data-id="${id}" onclick="addToCart(event)"></i>
+          </span>` : ``}
         <span class="price">${product.price} zł</span>
       </div>
     `;
+
 
     productList.appendChild(div);
   });
@@ -230,6 +246,8 @@ function renderCatalogFiltered(selectedCategory) {
         location.href = `produkt.html?id=${id}&category=${product.category}`;
       };
 
+    const available = isAvailable(product);
+    if (!available) div.classList.add("unavailable");
 
 
     div.innerHTML = `
@@ -239,31 +257,31 @@ function renderCatalogFiltered(selectedCategory) {
           <img src="${product.thumbs?.[0] || product.mainImage}" alt="Zdjęcie 2">
         </div>
       </div>
-<h3 class="tile-title">${
-  product.category === "packages"
-    ? (
-        product.setType === "set3"
-          ? "SET OF 3 CANDLES"
-          : product.setType === "set2+1"
-            ? "CANDLES(2) & DIFFUSER SET"
-            : "CANDLE & DIFFUSER SET"
-      )
-    : product.name.toUpperCase()
-}</h3>
 
+      ${available ? "" : `<span class="badge-unavail">Tymczasowo niedostępny</span>`}
 
+      <h3 class="tile-title">${
+        product.category === "packages"
+          ? (product.setType === "set3"
+                ? "SET OF 3 CANDLES"
+                : (product.setType === "set2+1" ? "CANDLES(2) & DIFFUSER SET" : "CANDLE & DIFFUSER SET"))
+          : product.name.toUpperCase()
+      }</h3>
 
       <hr class="hr">
-      <p class="tile-subtitle">${product.subtitle} ${product.weight}</p>
+      <p class="tile-subtitle">${product.subtitle || ""} ${product.weight || ""}</p>
       <p class="tile-subtitle2">${product.subtitle2 || ""}</p>
       <hr class="hr">
+
       <div class="basket-line">
-        <span class="min-basket">
-          <i class="fas fa-cart-arrow-down" data-id="${id}" onclick="addToCart(event)"></i>
-        </span>
+        ${available ? `
+          <span class="min-basket">
+            <i class="fas fa-cart-arrow-down" data-id="${id}" onclick="addToCart(event)"></i>
+          </span>` : ``}
         <span class="price">${product.price} zł</span>
       </div>
     `;
+
 
     productList.appendChild(div);
   });
@@ -361,6 +379,32 @@ inputTotal.value = total.toFixed(2); // to zostawiamy jako suma produktów (moż
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
   const product = id ? products[id] : null;
+    const available = isAvailable(product);
+
+  // plakietka na zdjęciu
+  if (!available) {
+    const viewer = document.querySelector(".image-viewer");
+    if (viewer) {
+      const badge = document.createElement("span");
+      badge.className = "badge-unavail";
+      badge.textContent = "Tymczasowo niedostępny";
+      viewer.appendChild(badge);
+    }
+  }
+
+  // przycisk „Dodaj do koszyka” -> zastąp komunikatem
+  if (!available) {
+    const addBtn = document.querySelector('button.add-to-cart');
+    if (addBtn) {
+      const note = document.createElement("div");
+      note.className = "product-unavail-note";
+      note.textContent = "Produkt tymczasowo niedostępny";
+      addBtn.replaceWith(note);
+    }
+    const qty = document.getElementById("qty");
+    if (qty) qty.disabled = true;
+  }
+
 
   const productPage = document.querySelector(".product-page");
 

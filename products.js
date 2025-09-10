@@ -10,6 +10,7 @@ window.products = {
     "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
     "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "weight": "200g",
+    "availability": false,
     "mainImage": "images/white/main.webp",
     "thumbs": [
       "images/white/thumb1.webp",
