@@ -1442,6 +1442,8 @@ body{
   padding: 14px 18px;
   border-bottom: 1px solid #eee;
   font-weight: 700;
+  font-size: 20px;
+
 }
 
 .side-cart-close {
@@ -1532,14 +1534,17 @@ body.no-scroll { overflow: hidden; }
 @media (max-width: 480px) {
   .side-cart-actions {
     flex-direction: column; 
-    margin-bottom: 30px;
+    margin-bottom: 80px;
   }
 
   .side-cart-actions .btn {
     width: 100%; /* opcjonalnie, żeby przyciski były pełnej szerokości */
   }
 }
-
+.side-cart-header{
+  border: none;
+  margin-top: 60px;
+}
 }
 /* === SIDE CART: układ "zdjęcie duże + tekst pod spodem" === */
 .side-cart-product {

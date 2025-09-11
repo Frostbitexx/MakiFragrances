@@ -110,7 +110,7 @@ function openSideCartPanel(productId, qty) {
 
   // bez produktu — tylko informacja (nie powinno się zdarzyć, bo wszędzie używamy products)
   if (!product) {
-    bodyEl.innerHTML = `<p>Dodano do koszyka.</p>`;
+    bodyEl.innerHTML = `<p style >Dodano do koszyka.</p>`;
   } else {
     const lineTotal = (product.price * quantity).toFixed(2);
     const title = product.category === 'packages'
