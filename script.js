@@ -367,7 +367,7 @@ if (displayGrandTotal && inputGrandTotal) {
 
 inputNumber.value = orderNumber;
 inputSummary.value = summary;
-inputTotal.value = total.toFixed(2); // to zostawiamy jako suma produktów (może być przydatne)
+inputTotal.value = total.toFixed(2); 
 
   }
 });
@@ -961,4 +961,135 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
 
+  // === konfiguracja "kafelków" kategorii ===
+  // USTAW docelowe linki (np. do sekcji na index.html lub strony kategorii)
+  const CATEGORY_CARDS = [
+    {
+      key: "candles",
+      names: ["świeca", "świece", "swieca", "swiece", "świeczka", "świeczki", "swieczka", "swieczki"],
+      label: "Kategoria: Świece",
+      href: "catalog.html?category=candles",          // <- ZMIEŃ jeśli masz inny adres
+      img: "images/categories/catcan.webp"
+    },
+    {
+      key: "diffuzers",
+      names: ["dyfuzor", "dyfuzory", "diffuzer", "diffuzery"],
+      label: "Kategoria: Dyfuzory",
+      href: "catalog.html?category=diffuzers",
+      img: "images/categories/catdiff.webp"
+    },
+    {
+      key: "packages",
+      names: ["zestaw", "zestawy"],
+      label: "Kategoria: Zestawy",
+      href: "catalog.html?category=packages",
+      img: "images/categories/catpack.webp"
+    }
+  ];
+
+    // helper: porównania bez ogonków
+  const normalize = (str) =>
+    (str || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, "");
+
+  function renderCategoryCard(card) {
+    const a = document.createElement("a");
+    a.className = "category-hint";
+    a.href = card.href;
+
+    const img = document.createElement("img");
+    img.src = card.img;
+    img.alt = card.label;
+
+    const text = document.createElement("div");
+    text.className = "category-hint__text";
+    text.textContent = card.label;
+
+    a.appendChild(img);
+    a.appendChild(text);
+    return a;
+  }
+
+  if (searchInput && searchResults && typeof products === "object") {
+    searchInput.addEventListener("input", function () {
+      const raw = this.value || "";
+      const qNorm = normalize(raw);
+
+      searchResults.innerHTML = "";
+      if (!qNorm) {
+        searchResults.style.display = "none";
+        return;
+      }
+
+      // --- A) Kategorie: pokazuj od pierwszej litery (prefix) bez ogonków ---
+      const matchedCards = CATEGORY_CARDS.filter((c) =>
+        c.names.some((n) => normalize(n).startsWith(qNorm))
+      );
+
+      if (matchedCards.length) {
+        const header = document.createElement("div");
+        header.className = "category-hint__header";
+        header.textContent = "Szybki skrót do kategorii:";
+        searchResults.appendChild(header);
+
+        matchedCards.forEach((c) => {
+          searchResults.appendChild(renderCategoryCard(c));
+        });
+
+        const divider = document.createElement("div");
+        divider.className = "category-hint__divider";
+        searchResults.appendChild(divider);
+      }
+
+      // --- B) Produkty: wyszukiwanie bez ogonków ---
+      const matches = Object.entries(products).filter(([id, product]) => {
+        const nameN = normalize(product.name);
+        const subtitleN = normalize(product.subtitle);
+        const descN = normalize(product.desc);
+        return (
+          nameN.includes(qNorm) ||
+          subtitleN.includes(qNorm) ||
+          descN.includes(qNorm)
+        );
+      });
+
+      if (matches.length === 0) {
+        const noResultItem = document.createElement("div");
+        noResultItem.textContent = "Nie znaleziono wyników pasujących do szukanej frazy.";
+        noResultItem.style.padding = "20px 10px";
+        noResultItem.style.color = "#666";
+        noResultItem.style.textAlign = "center";
+        searchResults.appendChild(noResultItem);
+        searchResults.style.display = "block";
+        return;
+      }
+
+      matches.forEach(([id, product]) => {
+        const resultItem = document.createElement("div");
+        resultItem.className = "search-result-item";
+        resultItem.textContent = (product.name || "") + " – " + (product.subtitle || "");
+        if (product.subtitle2) {
+          resultItem.textContent += " " + product.subtitle2;
+        }
+        resultItem.onclick = () => {
+          window.location.href = `produkt.html?id=${id}`;
+        };
+        searchResults.appendChild(resultItem);
+      });
+
+      searchResults.style.display = "block";
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!searchResults.contains(e.target) && e.target !== searchInput) {
+        searchResults.style.display = "none";
+      }
+    });
+  }
+});

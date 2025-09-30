@@ -1520,6 +1520,64 @@ body{
 
 /* zablokuj przewijanie strony, gdy panel otwarty */
 body.no-scroll { overflow: hidden; }
+/* pasek nad kafelkami, delikatna etykieta */
+.category-hint__header {
+  font-size: 12px;
+  letter-spacing: .02em;
+  color: #777;
+  padding: 8px 10px 4px;
+  text-transform: uppercase;
+}
+
+/* pojedynczy kafelek kategorii */
+.category-hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: transform .12s ease, background-color .12s ease;
+  background: #f7f7f8;
+  margin: 6px 8px;
+}
+
+.category-hint:hover {
+  background: #f0f0f2;
+  transform: translateY(-1px);
+}
+
+.category-hint img {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.category-hint__text {
+  color: #111;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* cienka linia oddzielająca kafelki od wyników produktów */
+.category-hint__divider {
+  height: 1px;
+  background: #e7e7ea;
+  margin: 6px 10px 8px;
+}
+
+/* (opcjonalnie) lekka karta dla wyników produktów, żeby wizualnie pasowały */
+.search-result-item {
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin: 6px 8px;
+  cursor: pointer;
+}
+.search-result-item:hover {
+  background: #f7f7f8;
+}
 
 /* mobilki: panel pełna szerokość */
 @media (max-width: 480px) {
