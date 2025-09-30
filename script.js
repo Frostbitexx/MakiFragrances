@@ -1093,3 +1093,287 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+(function(){
+  const form = document.getElementById('orderForm');
+  const deliveryRadios = form.querySelectorAll('input[name="delivery"]');
+  const paczkomatField = document.getElementById('paczkomatField');
+  const paczkomatInput = document.getElementById('paczkomatInput');
+  const mapContainer = document.getElementById('paczkomatMap');
+  const searchInput = document.getElementById('lockerSearchInput');
+  const searchBtn = document.getElementById('lockerSearchBtn');
+  const useFormBtn = document.getElementById('lockerUseFormBtn');
+
+  // Odczyt pól adresowych z formularza (do przycisku "Użyj adresu z formularza")
+  const addrStreet = form.querySelector('input[name="address"]');
+  const addrCity   = form.querySelector('input[name="city"]');
+
+  // Publiczne API
+  const OVERPASS_URL      = "https://overpass-api.de/api/interpreter";
+  const NOMINATIM_SEARCH  = "https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=1&accept-language=pl&q=";
+  const NOMINATIM_REVERSE = "https://nominatim.openstreetmap.org/reverse?format=json&zoom=18&addressdetails=1&accept-language=pl";
+
+  // Mapa: start w PL, większy zoom
+  const POLAND_CENTER = [52.0, 19.0];
+  const INITIAL_ZOOM  = 13;
+
+  let map, markersLayer, mapReady = false;
+  let debounceTimer = null, lastBBoxKey = null, pendingController = null;
+  let popupSeq = 0; // unikalne id do spanów z adresem w popupach
+
+  function togglePaczkomatField(){
+    const selected = form.querySelector('input[name="delivery"]:checked')?.value;
+    if (selected === 'paczkomat') {
+      paczkomatField.style.display = 'block';
+      if (!mapReady) initMap();
+      setTimeout(() => map?.invalidateSize(), 50);
+    } else {
+      paczkomatField.style.display = 'none';
+      paczkomatInput.value = '';
+    }
+  }
+  deliveryRadios.forEach(r => r.addEventListener('change', togglePaczkomatField));
+  togglePaczkomatField();
+
+  function initMap(){
+    map = L.map(mapContainer).setView(POLAND_CENTER, INITIAL_ZOOM);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+    markersLayer = L.layerGroup().addTo(map);
+
+    map.whenReady(loadLockers);
+    map.on('moveend', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(loadLockers, 350);
+    });
+
+    // Wyszukiwarka
+    searchBtn.addEventListener('click', () => doSearch(searchInput.value));
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); doSearch(searchInput.value); }
+    });
+    useFormBtn.addEventListener('click', () => {
+      const q = [addrStreet?.value || '', addrCity?.value || ''].filter(Boolean).join(', ');
+      if (!q.trim()) { alert('Uzupełnij najpierw adres i/lub miasto w formularzu.'); return; }
+      doSearch(q);
+    });
+
+    mapReady = true;
+  }
+
+  function doSearch(query){
+    const q = (query || '').trim();
+    if (!q) return;
+    fetch(NOMINATIM_SEARCH + encodeURIComponent(q), { headers: { 'Accept': 'application/json' }})
+      .then(r => r.json())
+      .then(res => {
+        if (!Array.isArray(res) || res.length === 0) {
+          alert('Nie znaleziono lokalizacji. Spróbuj doprecyzować adres.');
+          return;
+        }
+        const { lat, lon } = res[0];
+        map.setView([parseFloat(lat), parseFloat(lon)], 15);
+      })
+      .catch(() => alert('Błąd wyszukiwania lokalizacji.'));
+  }
+
+  function bboxKey(bounds) {
+    const f = x => x.toFixed(4);
+    return `${f(bounds.getSouth())},${f(bounds.getWest())},${f(bounds.getNorth())},${f(bounds.getEast())}`;
+  }
+
+  function buildOverpassQuery(bounds){
+    const s = bounds.getSouth(), w = bounds.getWest(),
+          n = bounds.getNorth(), e = bounds.getEast();
+    // Paczkomaty InPost w widocznym bbox (node/way, różne schematy tagów)
+    return `
+      [out:json][timeout:25];
+      (
+        node["amenity"="vending_machine"]["vending"~"parcel_locker|parcel locker"]["operator"~"InPost|InPost Paczkomaty"](${s},${w},${n},${e});
+        node["amenity"="parcel_locker"]["operator"~"InPost|InPost Paczkomaty"](${s},${w},${n},${e});
+        way["amenity"="vending_machine"]["vending"~"parcel_locker|parcel locker"]["operator"~"InPost|InPost Paczkomaty"](${s},${w},${n},${e});
+        way["amenity"="parcel_locker"]["operator"~"InPost|InPost Paczkomaty"](${s},${w},${n},${e});
+      );
+      out center tags;
+    `;
+  }
+
+  // Z OSM: zwracamy DWIE linie – 1) ulica + numer, 2) kod pocztowy (jeśli jest)
+  function formatAddressOSM_HTML(tags) {
+    const street = tags['addr:street'] || '';
+    const number = tags['addr:housenumber'] || '';
+    const postcode = tags['addr:postcode'] || '';
+    const line1 = [street, number].filter(Boolean).join(' ').trim();
+    const line2 = (postcode || '').trim();
+    if (line1 && line2) return `${escapeHTML(line1)}<br/>${escapeHTML(line2)}`;
+    if (line1) return `${escapeHTML(line1)}`;
+    if (line2) return `${escapeHTML(line2)}`;
+    return '';
+  }
+
+  // Reverse Nominatim → taki sam układ (ulica + nr) w 1. linii, kod w 2.
+  function formatAddressReverse_HTML(a) {
+    const street = a.road || '';
+    const number = a.house_number || '';
+    const postcode = a.postcode || '';
+    const line1 = [street, number].filter(Boolean).join(' ').trim();
+    const line2 = (postcode || '').trim();
+    if (line1 && line2) return `${escapeHTML(line1)}<br/>${escapeHTML(line2)}`;
+    if (line1) return `${escapeHTML(line1)}`;
+    if (line2) return `${escapeHTML(line2)}`;
+    return 'Brak adresu';
+  }
+
+  function escapeHTML(str){
+    return String(str).replace(/[&<>"']/g, s => (
+      { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[s]
+    ));
+  }
+
+  function loadLockers(){
+    const bounds = map.getBounds();
+    const key = bboxKey(bounds);
+    if (key === lastBBoxKey) return;
+    lastBBoxKey = key;
+
+    const query = buildOverpassQuery(bounds);
+
+    if (pendingController) pendingController.abort();
+    pendingController = new AbortController();
+
+    fetch(OVERPASS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+      body: query,
+      signal: pendingController.signal
+    })
+    .then(r => r.json())
+    .then(data => {
+      markersLayer.clearLayers();
+      if (!data?.elements) return;
+
+      data.elements.forEach(el => {
+        const lat = el.lat || el.center?.lat;
+        const lon = el.lon || el.center?.lon;
+        if (!lat || !lon) return;
+
+        const t = el.tags || {};
+        const code = (t.ref || t['ref:inpost'] || '').toUpperCase();
+        const name = code ? `Paczkomat ${code}` : 'Paczkomat InPost';
+
+        const addrHTML = formatAddressOSM_HTML(t); // może być pusty
+
+        const marker = L.marker([lat, lon]).addTo(markersLayer);
+
+        // unikalny span na adres (jeśli brak w OSM, dociągniemy reverse)
+        const addrSpanId = `addr-${popupSeq++}`;
+        const safeAddrHtml = addrHTML
+          ? `${addrHTML}<br/>`
+          : `<span id="${addrSpanId}">Ładowanie adresu…</span><br/>`;
+
+        marker.bindPopup(`
+          <b>${escapeHTML(name)}</b><br/>
+          ${safeAddrHtml}
+          <small>${escapeHTML(t.operator || '')}</small><br/><br/>
+          <button type="button" form="__noform" class="pick-locker" data-code="${escapeHTML(code)}">Wybierz ten punkt</button>
+        `);
+
+        marker.on('popupopen', (e) => {
+          const popupEl = e.popup.getElement();
+
+          // Jeśli nie mamy adresu w OSM, dociągnij reverse z Nominatim
+          if (!addrHTML) {
+            const span = document.getElementById(addrSpanId);
+            if (span) {
+              fetch(`${NOMINATIM_REVERSE}&lat=${lat}&lon=${lon}`, {
+                headers: { 'Accept': 'application/json' }
+              })
+              .then(r => r.json())
+              .then(data => {
+                const a = data.address || {};
+                span.innerHTML = formatAddressReverse_HTML(a);
+              })
+              .catch(() => { span.textContent = 'Nie udało się pobrać adresu'; });
+            }
+          }
+
+          // Obsługa przycisku wyboru punktu
+const btn = popupEl.querySelector('.pick-locker');
+  if (btn) {
+    btn.addEventListener('click', (ev) => {
+      ev.preventDefault();      // <- nie pozwól przypadkiem wysłać formularza
+      ev.stopPropagation();     // <- i nie bąbelkuj do form
+      const chosen = (btn.getAttribute('data-code') || '').toUpperCase();
+      if (!chosen) {
+        alert('Ten punkt nie ma kodu w OSM. Wpisz kod ręcznie z wyszukiwarki InPost.');
+        return;
+      }
+      paczkomatInput.value = chosen;
+      e.popup.remove();
+    }, { once: true });
+  }
+});
+      });
+    })
+    .catch(err => { if (err.name !== 'AbortError') console.error('Błąd Overpass:', err); })
+    .finally(() => { pendingController = null; });
+  }
+
+// --- Walidacja paczkomatu (wklej w miejsce starego handlera 'submit') ---
+(function(){
+  const form = document.getElementById('orderForm');
+  const paczkomatInput = document.getElementById('paczkomatInput');
+
+  // 3 litery + 2-3 cyfry + opcjonalnie 1 litera na końcu (np. WAW123A)
+  const LOCKER_CODE_RE = /^[A-ZĆŁÓŚŹŻŃ]{3}\d{2,3}[A-ZĆŁÓŚŹŻŃ]?$/;
+
+  function isPaczkomatSelected() {
+    const checked = form.querySelector('input[name="delivery"]:checked');
+    return checked && checked.value === 'paczkomat';
+  }
+
+  // Usuń ewentualny poprzedni listener, jeśli był przypięty wielokrotnie
+  // (opcjonalnie; tylko jeśli w kodzie zdarzało Ci się re-dodawać handler).
+  // form.removeEventListener('submit', oldHandlerReference);
+
+  form.addEventListener('submit', function onSubmit(e) {
+    if (!isPaczkomatSelected()) return; // kurier → nic nie sprawdzamy
+
+    const raw = (paczkomatInput?.value || '').trim().toUpperCase();
+    const valid = LOCKER_CODE_RE.test(raw);
+
+    if (!valid) {
+      // ZATRZYMAJ W 100%
+      e.preventDefault();
+      e.stopPropagation();
+      if (typeof e.stopImmediatePropagation === 'function') {
+        e.stopImmediatePropagation();
+      }
+
+      alert('Wpisz poprawny kod paczkomatu (np. WAW123 lub WAW123A).');
+      if (paczkomatInput) {
+        paczkomatInput.focus();
+        paczkomatInput.select?.();
+      }
+      return false; // dla starszych przeglądarek
+    }
+
+    // jeśli poprawny, normalizujemy i przepuszczamy submit
+    if (paczkomatInput) paczkomatInput.value = raw;
+  });
+
+  // Dodatkowo – upewnij się, że te przyciski NIE są submitami:
+  const btns = [
+    document.getElementById('lockerSearchBtn'),
+    document.getElementById('lockerUseFormBtn')
+  ].filter(Boolean);
+  btns.forEach(btn => {
+    if (btn.getAttribute('type') !== 'button') btn.setAttribute('type', 'button');
+  });
+})();
+})();
+
+
+
+
+

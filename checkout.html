@@ -2,7 +2,19 @@
 
 <html lang="pl">
 <head>
-  
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+
+
 </script>
 <link href="images/logo.ico" rel="icon" type="image/x-icon"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
@@ -164,17 +176,37 @@
   </label>
 </div>
 
-<!-- ukryte pole na paczkomat -->
-<div id="paczkomatField" class="paczkomat-field" style="display:none;">
+<!-- pole paczkomatu: pokazuje się tylko przy dostawie "paczkomat" -->
+<div id="paczkomatField" class="paczkomat-field" style="display:none; margin-top:8px;">
   <label>Podaj kod paczkomatu (np. WAW123):<br>
-<input type="text" name="paczkomat_code" id="paczkomatInput" placeholder="Kod paczkomatu">
-
+    <input type="text" name="paczkomat_code" id="paczkomatInput"
+           placeholder="Kod paczkomatu"
+           style="max-width:240px;">
   </label>
-  <p style="font-size:0.85rem;">
-    👉 <a style="color:black;" href="https://inpost.pl/znajdz-paczkomat" target="_blank">Znajdź swój paczkomat tutaj</a>
+
+  <!-- WYSZUKIWARKA MAPY -->
+  <div style="display:flex; gap:8px; align-items:center; margin:10px 0 6px;">
+    <input id="lockerSearchInput" type="text" placeholder="Miasto / ulica / kod pocztowy"
+           style="flex:1; max-width:420px; padding:8px;">
+    <button class="btn-map" type="button" id="lockerSearchBtn">Szukaj</button>
+    <button class="btn-map" type="button" id="lockerUseFormBtn" title="Wyszukaj na podstawie adresu z formularza">
+      Użyj adresu z formularza
+    </button>
+  </div>
+  <p class="helper" style="font-size:.85rem; opacity:.8; margin:0 0 6px;">
+    Wpisz lokalizację i kliknij „Szukaj”, albo użyj danych z pól „Ulica i numer domu” oraz „Kod pocztowy i miasto”.
   </p>
 
+  <!-- MAPA -->
+  <div id="paczkomatMap"
+       style="width:100%; height:420px; margin-top:6px; border:1px solid #eee; border-radius:10px;"></div>
+
+  <p class="helper" style="font-size:.85rem; opacity:.8; margin-top:6px;">
+    Kliknij marker na mapie i wybierz „Wybierz ten punkt”, żeby wstawić kod do pola powyżej.
+  </p>
 </div>
+
+
 
   <label>
     <input type="checkbox" name="rodo" required style="margin-top: 20px;"> Zapoznałem się z polityką prywatności, RODO oraz regulaminem
@@ -182,6 +214,8 @@
 
   <button type="submit">Złóż zamówienie</button>
 </form>
+
+
 <br><br>
 <p style="font-size: 0.9rem; line-height: 1.5;">
   Administratorem Twoich danych osobowych jest właściciel sklepu Maki Fragrances. Twoje dane osobowe są przetwarzane w celu realizacji zamówienia oraz kontaktu związanego z jego obsługą.

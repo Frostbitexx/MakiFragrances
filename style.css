@@ -1578,7 +1578,13 @@ body.no-scroll { overflow: hidden; }
 .search-result-item:hover {
   background: #f7f7f8;
 }
-
+.btn-map{
+background-color: #000;
+color: #fff;
+border: none;
+padding: 5px 10px;
+  border-radius: 6px;
+}
 /* mobilki: panel pełna szerokość */
 @media (max-width: 480px) {
   .side-cart {
