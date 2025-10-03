@@ -1,4 +1,76 @@
 window.products = {
+  "prod53": {
+    "category": "candles",
+    "name": "Soy candle",
+    "productSubtitle": "\"Gingerbread\" w kolorze przezroczystym",
+    "subtitle": "Gingerbread",
+    "subtitle2": "(przezroczysty)",
+    "price": 65,
+    "desc": "Świeca cicho pali się na parapecie, a w kuchni mama piecze pierniczki. W powietrzu unosi się imbir, cynamon, goździki i słodka melasa. Zapach ciepły, korzenny, znajomy - jak chwila, do której chce się wracać wciąż na nowo.",
+    "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
+    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
+    "weight": "200g",
+    "mainImage": "images/white/main.webp",
+    "thumbs": [
+      "images/white/thumb1.webp",
+      "images/white/thumb2.webp",
+      "images/white/thumb3.webp"
+    ]
+  },
+  "prod54": {
+    "category": "candles",
+    "name": "Soy candle",
+    "productSubtitle": "\"Gingerbread\" w kolorze bursztynowym",
+    "subtitle": "Gingerbread",
+    "subtitle2": "(bursztynowy)",
+    "price": 65,
+    "desc": "Świeca cicho pali się na parapecie, a w kuchni mama piecze pierniczki. W powietrzu unosi się imbir, cynamon, goździki i słodka melasa. Zapach ciepły, korzenny, znajomy - jak chwila, do której chce się wracać wciąż na nowo.",
+    "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
+    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
+    "weight": "250g",
+    "mainImage": "images/amber/main.webp",
+    "thumbs": [
+      "images/amber/thumb1.webp",
+      "images/amber/thumb2.webp",
+      "images/amber/thumb3.webp"
+    ]
+  },
+    "prod55": {
+    "category": "candles",
+    "name": "Soy candle",
+    "productSubtitle": "\"Banana Nut Bread\" w kolorze przezroczystym",
+    "subtitle": "Banana Nut Bread",
+    "subtitle2": "(przezroczysty)",
+    "price": 65,
+    "desc": "Ciepły zapach świeżo upieczonego chleba bananowego - z nutami dojrzałego banana, orzechów, wanilii. A gdy posmarować chleb ciepłym masłem - od razu wracają wspomnienia dzieciństwa, kiedy wszystko było prostsze i smaczniejsze.",
+    "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
+    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
+    "weight": "200g",
+    "mainImage": "images/white/main.webp",
+    "thumbs": [
+      "images/white/thumb1.webp",
+      "images/white/thumb2.webp",
+      "images/white/thumb3.webp"
+    ]
+  },
+    "prod56": {
+    "category": "candles",
+    "name": "Soy candle",
+    "productSubtitle": "\"Banana Nut Bread\" w kolorze bursztynowym",
+    "subtitle": "Banana Nut Bread",
+    "subtitle2": "(bursztynowy)",
+    "price": 65,
+    "desc": "Ciepły zapach świeżo upieczonego chleba bananowego - z nutami dojrzałego banana, orzechów, wanilii. A gdy posmarować chleb ciepłym masłem - od razu wracają wspomnienia dzieciństwa, kiedy wszystko było prostsze i smaczniejsze.",
+    "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
+    "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
+    "weight": "250g",
+    "mainImage": "images/amber/main.webp",
+    "thumbs": [
+      "images/amber/thumb1.webp",
+      "images/amber/thumb2.webp",
+      "images/amber/thumb3.webp"
+    ]
+  },
   "prod1": {
     "category": "candles",
     "name": "Soy candle",
