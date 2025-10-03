@@ -23,7 +23,7 @@ window.products = {
     "productSubtitle": "\"Gingerbread\" w kolorze bursztynowym",
     "subtitle": "Gingerbread",
     "subtitle2": "(bursztynowy)",
-    "price": 65,
+    "price": 79,
     "desc": "Świeca cicho pali się na parapecie, a w kuchni mama piecze pierniczki. W powietrzu unosi się imbir, cynamon, goździki i słodka melasa. Zapach ciepły, korzenny, znajomy - jak chwila, do której chce się wracać wciąż na nowo.",
     "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
     "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
@@ -59,7 +59,7 @@ window.products = {
     "productSubtitle": "\"Banana Nut Bread\" w kolorze bursztynowym",
     "subtitle": "Banana Nut Bread",
     "subtitle2": "(bursztynowy)",
-    "price": 65,
+    "price": 79,
     "desc": "Ciepły zapach świeżo upieczonego chleba bananowego - z nutami dojrzałego banana, orzechów, wanilii. A gdy posmarować chleb ciepłym masłem - od razu wracają wspomnienia dzieciństwa, kiedy wszystko było prostsze i smaczniejsze.",
     "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
     "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
@@ -985,4 +985,5 @@ window.products = {
       "images/amberset/thumb1.webp"
     ]
   }
+
 };
