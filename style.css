@@ -1171,15 +1171,63 @@ font-family: 'CutiveMono';
   opacity: 1;
   transition: opacity 0.5s ease;
 }
-.delivery-banner{
-  color: white;
-  background-color: #535353;
-  text-align: center;
-  height:25px;
-  font-family: cutiveMono;
-  font-size: large;
-  padding:2px;
+
+/* ——— USTAWIENIA ——— */
+:root {
+  --promo-duration: 10s;         /* całkowity czas cyklu (skręć do 6s lub wydłuż do 10s) */
 }
+
+/* ——— PASEK ——— */
+.promo-banner {
+  width: 100%;
+  overflow: hidden;     
+    height:25px;         
+background-color: #535353;
+  color: white;
+  padding: 8px 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    font-family: cutiveMono;
+
+}
+
+/* ——— TEKST + ANIMACJA ——— */
+.promo-text {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform, opacity;
+  animation: slide-pause var(--promo-duration) ease-in-out infinite;
+  /* drobne wygładzenie ruchu */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Klucz: wjazd → pauza na środku → wyjazd */
+@keyframes slide-pause {
+  /* start poza ekranem po prawej */
+  0%   { transform: translateX(60vw); opacity: 0; }
+  /* płynny wjazd i pełna widoczność */
+  15%  { transform: translateX(0);     opacity: 1; }
+  /* pauza na środku (czytelność) */
+  55%  { transform: translateX(0);     opacity: 1; }
+  /* płynny wyjazd w lewo i zanik */
+  85%  { transform: translateX(-60vw); opacity: 0; }
+  100% { transform: translateX(-60vw); opacity: 0; }
+}
+
+/* ——— DOSTĘPNOŚĆ: ogranicz ruch, jeśli użytkownik woli mniej animacji ——— */
+@media (prefers-reduced-motion: reduce) {
+  .promo-text {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Ukryj menu domyślnie na mobile */
 @media (min-width: 769px){
   .image-viewer {
