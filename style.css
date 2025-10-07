@@ -1218,6 +1218,25 @@ background-color: #535353;
   85%  { transform: translateX(-60vw); opacity: 0; }
   100% { transform: translateX(-60vw); opacity: 0; }
 }
+/* ✅ Ulepszenie dla ekranów mobilnych */
+@media (max-width: 600px) {
+  .promo-banner {
+    font-size: 12px; /* mniejszy tekst */
+    padding: 6px 0;
+  }
+
+  .promo-text {
+    animation: slide-pause-mobile var(--promo-duration) ease-in-out infinite;
+  }
+
+  @keyframes slide-pause-mobile {
+    0%   { transform: translateX(100%); opacity: 0; }
+    15%  { transform: translateX(0);    opacity: 1; }
+    65%  { transform: translateX(0);    opacity: 1; }
+    90%  { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(-100%); opacity: 0; }
+  }
+}
 
 /* ——— DOSTĘPNOŚĆ: ogranicz ruch, jeśli użytkownik woli mniej animacji ——— */
 @media (prefers-reduced-motion: reduce) {
