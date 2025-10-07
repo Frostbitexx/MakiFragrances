@@ -41,7 +41,7 @@ body {
 .header {
   position: sticky;
   top: 0;
-  z-index: 10000;
+  z-index: 2000;
   display: flex;
   align-items: stretch;
   height: 90px;
@@ -1171,7 +1171,15 @@ font-family: 'CutiveMono';
   opacity: 1;
   transition: opacity 0.5s ease;
 }
-
+.delivery-banner{
+  color: white;
+  background-color: #535353;
+  text-align: center;
+  height:25px;
+  font-family: cutiveMono;
+  font-size: large;
+  padding:2px;
+}
 /* Ukryj menu domyślnie na mobile */
 @media (min-width: 769px){
   .image-viewer {
@@ -1426,7 +1434,7 @@ body{
   box-shadow: -2px 0 16px rgba(0,0,0,.18);
   transform: translateX(100%);
   transition: transform .3s ease;
-  z-index: 9999;
+  z-index: 10001;
   display: flex;
   flex-direction: column;
   font-family: 'IBM Plex Mono', monospace;

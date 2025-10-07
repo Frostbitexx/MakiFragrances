@@ -348,9 +348,13 @@ cart.forEach(item => {
 
     summary = summary.slice(0, -2);
 
-// koszt dostawy
-const deliveryCost = 20;
+// koszt dostawy – tylko poniżej progu darmowej wysyłki
+const FREE_SHIPPING_THRESHOLD = 200;
+const BASE_DELIVERY_COST = 14.99;
+
+const deliveryCost = total >= FREE_SHIPPING_THRESHOLD ? 0 : BASE_DELIVERY_COST;
 const grandTotal = total + deliveryCost;
+
 
 displayNumber.innerText = orderNumber;
 displaySummary.innerText = summary;
@@ -561,15 +565,24 @@ cartItemsDiv.innerHTML += `
     });
 
       // koszt dostawy
-  const deliveryCost = 20;
-  const grandTotal = total + deliveryCost;
+// koszt dostawy – tylko poniżej progu darmowej wysyłki
+const FREE_SHIPPING_THRESHOLD = 200;
+const BASE_DELIVERY_COST = 14.99;
 
-  cartTotalDiv.innerHTML = `
-    <p style="line-height: 1.5;">Suma produktów: ${total.toFixed(2)} zł</p>
-    <p style="line-height: 1.5;">Dostawa: ${deliveryCost.toFixed(2)} zł</p>
-    <hr style="border:none; border-top:1px solid #ddd;">
-    <p style="line-height: 1.5;">Razem do zapłaty: ${grandTotal.toFixed(2)} zł</p>
-  `;
+const deliveryCost = total >= FREE_SHIPPING_THRESHOLD ? 0 : BASE_DELIVERY_COST;
+const grandTotal = total + deliveryCost;
+
+const deliveryLabel = deliveryCost === 0
+  ? `0,00 zł <span style="color:#2e7d32; font-weight:600;">(darmowa dostawa od ${FREE_SHIPPING_THRESHOLD} zł)</span>`
+  : `${deliveryCost.toFixed(2)} zł`;
+
+cartTotalDiv.innerHTML = `
+  <p style="line-height:1.5;">Suma produktów: ${total.toFixed(2)} zł</p>
+  <p style="line-height:1.5;">Dostawa: ${deliveryLabel}</p>
+  <hr style="border:none; border-top:1px solid #ddd;">
+  <p style="line-height:1.5;">Razem do zapłaty: ${grandTotal.toFixed(2)} zł</p>
+`;
+
 
   }
 
@@ -629,7 +642,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const formData = new FormData(form);
 
-      fetch("https://script.google.com/macros/s/AKfycbxZjvaT-ftJJ-eDmaehc25Lp57UIGm6Kky5PY1GTDZcPTwUpCNU7PRo3DVE4vTfajI4LA/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbxMLKZtuG2g1mBPOksjQYeHGDQDM_uTlaArmpoKpcdqjDP07tz79jFk8nADW4udzd_U/exec", {
         method: "POST",
         body: formData
       })
