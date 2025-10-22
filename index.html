@@ -1,130 +1,192 @@
 <!DOCTYPE html>
-
 <html lang="pl">
 <head>
-  
-</script>
-<link href="images/logo.ico" rel="icon" type="image/x-icon"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <!-- PODSTAWA -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Maki Fragrances</title>
-<link href="style.css" rel="stylesheet">
-</link>
-<script src="products.js"></script>
+  <!-- SEO -->
+  <title>makifragrances – ręcznie robione świece sojowe i dyfuzory | naturalne składniki, vintage, decoupage</title>
+  <meta name="description" content="makifragrances to jednoosobowa pracownia zapachów: ręcznie robione świece sojowe i dyfuzory z naturalnych składników, nieszablonowe kompozycje oraz zestawy prezentowe w stylu vintage i decoupage.">
+  <link rel="canonical" href="https://makifragrances.pl/">
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="makifragrances">
+  <meta property="og:url" content="https://makifragrances.pl/">
+  <meta property="og:title" content="makifragrances – ręcznie robione świece i dyfuzory">
+  <meta property="og:description" content="Naturalne składniki, nieszablonowe kompozycje zapachowe, zestawy prezentowe vintage i decoupage.">
+  <!-- PODMIEŃ NA REALNY OBRAZ 1200×630 -->
+  <meta property="og:image" content="https://makifragrances.pl/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="makifragrances – świece i dyfuzory handmade">
+  <meta name="twitter:description" content="Naturalne składniki, nieszablonowe kompozycje, vintage/decoupage.">
+  <meta name="twitter:image" content="https://makifragrances.pl/og-image.jpg">
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "makifragrances",
+    "url": "https://makifragrances.pl/",
+    "logo": "https://makifragrances.pl/images/logo.webp",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite + wyszukiwarka -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "makifragrances",
+    "url": "https://makifragrances.pl/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://makifragrances.pl/szukaj?q={query}",
+      "query-input": "required name=query"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ (opcjonalne rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Z czego wykonane są świece i dyfuzory makifragrances?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Używamy naturalnych składników: wosku sojowego, bawełnianych knotów i kompozycji zapachowych bez ftalanów." }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy oferujecie zestawy prezentowe w stylu vintage i decoupage?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tak – pakujemy na prezent w estetyce vintage/decoupage. Możesz dodać własną dedykację w koszyku." }
+      },
+      {
+        "@type": "Question",
+        "name": "Czy realizujecie indywidualne kompozycje zapachowe?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Tak, tworzymy nieszablonowe kompozycje zapachowe na zamówienie – skontaktuj się z nami przez formularz." }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ZOSTAWIONE: Twoje istniejące zasoby -->
+  <link href="images/logo.ico" rel="icon" type="image/x-icon"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="products.js"></script>
 </head>
-<div class="promo-banner">
-  <p class="promo-text">Darmowa dostawa przy zamówieniach powyżej 200 zł !!!</p>
-</div>
-
-<div class="header">
-<a class="logo-link" href="index.html">
-<div class="logo-wrapper">
-<img alt="MAKI logo" class="logo" src="images/logo.webp"/>
-</div>
-</a>
-<div class="right-side">
-<div class="search-bar">
-  <i class="fas fa-search"></i>
-  <input type="text" placeholder="Wyszukaj produkty, kategorie, zapachy" id="searchInput" autocomplete="off" />
-  <a href="koszyk.html" class="cart-icon">
-    (<span id="cartCount">0</span>)
-    <i class="fas fa-shopping-cart"></i>
-  </a>
-  <button class="menu-toggle" onclick="toggleMenu()">
-    <i class="fas fa-bars"></i>
-  </button>
-</div>
-
-<nav class="menu">
-<ul>
-<li><a href="index.html">STRONA GŁÓWNA</a></li> 
-<li><a href="catalog.html">KATALOG</a></li>
-<li><a href="about.html">O NAS</a></li>
-<li><a href="contact.html">KONTAKT</a></li>
-<li><a href="regulamin.html">REGULAMIN</a></li>
-<li><a href="rodo.html">POLITYKA PRYWATNOŚCI</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div id="searchResults" class="search-results"></div>
 
 <body>
-
-
-<section class="slider-container">
-  <div class="logo-overlay">
-    <img alt="MAKI logo" class="logo" src="images/logo_white.webp"/>
-  </div>
-  <div class="slider-wrapper">
-    <div class="slider">
-      <img src="images/baner00.webp" alt="Baner 1" />
-      <img src="images/baner21.webp" alt="Baner 2" />
-      <img src="images/image2.webp" alt="Baner 3" />
-    </div>
-    <div class="slider-nav">
-      <button data-slide="0" class="dot"></button>
-      <button data-slide="1" class="dot"></button>
-      <button data-slide="2" class="dot"></button>
-    </div>
-  </div>
-</section>
-
-
-
-<div class="category-images">
-  <div class="cat-img" onclick="location.href='catalog.html?category=candles'">
-    <div class="cat-inner">
-      <img class="category-image" src="images/categories/catcan.webp" alt="Świece sojowe">
-    </div>
-    <h3 class="with-underline">Świece sojowe</h3>
-
+  <div class="promo-banner">
+    <p class="promo-text">Darmowa dostawa przy zamówieniach powyżej 200 zł !!!</p>
   </div>
 
-  <div class="cat-img" onclick="location.href='catalog.html?category=diffuzers'">
-    <div class="cat-inner">
-      <img class="category-image" src="images/categories/catdiff.webp" alt="Zapachy dla domu">
-    </div>
-    <h3 class="with-underline">Zapachy dla domu</h3>
-
-  </div>
-
-  <div class="cat-img" onclick="location.href='catalog.html?category=packages'">
-    <div class="cat-inner">
-      <img class="category-image" src="images/categories/catpack.webp" alt="Zestawy">
-    </div>
-    <h3 class="with-underline">Zestawy</h3>
-
-  </div>
-</div>
-
-
-
-
-
-
-
- 
-
-
-</body>
-
-<script src="script.js"></script>
-<footer class="footer">
-<div class="footer-left">
-<span>© 2025 Maki Fragrances. All rights reserved.</span>
-<a class="insta-link" href="https://www.instagram.com/maki_fragrances?utm_source=ig_web_button_share_sheet&igsh=OG42c3ZhM2Y1ems5" target="_blank">
-<i class="fab fa-instagram"></i> Instagram
+  <header class="header">
+    <a class="logo-link" href="index.html" aria-label="makifragrances – strona główna">
+      <div class="logo-wrapper">
+        <img alt="makifragrances logo" class="logo" src="images/logo.webp"/>
+      </div>
     </a>
-</div>
-<div class="footer-right">
-<span>Potrzebujesz indywidualnego zamówienia?</span><br/>
-<span>Chcesz się skontaktować w sprawie swoich zakupów?</span><br/>
-<span>Napisz do nas email: <a id="emailLink" href="mailto:makifragrances@gmail.com">makifragrances@gmail.com</a></span><br/>
 
-</div>
-</footer>
+    <div class="right-side">
+      <div class="search-bar">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input type="text" placeholder="Wyszukaj produkty, kategorie, zapachy" id="searchInput" autocomplete="off" />
+        <a href="koszyk.html" class="cart-icon" aria-label="Koszyk">
+          (<span id="cartCount">0</span>)
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Pokaż/ukryj menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <nav class="menu" aria-label="Główne menu">
+        <ul>
+          <li class="active"><a href="index.html" aria-current="page">STRONA GŁÓWNA</a></li>
+          <li><a href="catalog.html">KATALOG</a></li>
+          <li><a href="about.html">O NAS</a></li>
+          <li><a href="contact.html">KONTAKT</a></li>
+          <li><a href="regulamin.html">REGULAMIN</a></li>
+          <li><a href="rodo.html">POLITYKA PRYWATNOŚCI</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- miejsce na wyniki wyszukiwania (przeniesione do body) -->
+  <div id="searchResults" class="search-results" aria-live="polite"></div>
+
+  <main>
+    <!-- HERO / slider -->
+    <section class="slider-container" aria-label="Najważniejsze zdjęcia">
+      <div class="logo-overlay">
+        <img alt="makifragrances logo białe" class="logo" src="images/logo_white.webp"/>
+      </div>
+      <div class="slider-wrapper">
+        <div class="slider">
+          <img src="images/baner00.webp" alt="Ręcznie robione świece sojowe – makifragrances" />
+          <img src="images/baner21.webp" alt="Dyfuzory zapachowe z naturalnych składników – makifragrances" />
+          <img src="images/image2.webp" alt="Zestawy prezentowe w stylu vintage – makifragrances" />
+        </div>
+        <div class="slider-nav" aria-label="Nawigacja slidera">
+          <button data-slide="0" class="dot" aria-label="Slajd 1"></button>
+          <button data-slide="1" class="dot" aria-label="Slajd 2"></button>
+          <button data-slide="2" class="dot" aria-label="Slajd 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kategorie -->
+    <section class="category-images" aria-label="Kategorie produktów">
+      <div class="cat-img" onclick="location.href='catalog.html?category=candles'">
+        <div class="cat-inner">
+          <img class="category-image" src="images/categories/catcan.webp" alt="Świece sojowe – kategoria produktów">
+        </div>
+        <h3 class="with-underline">Świece sojowe</h3>
+      </div>
+
+      <div class="cat-img" onclick="location.href='catalog.html?category=diffuzers'">
+        <div class="cat-inner">
+          <img class="category-image" src="images/categories/catdiff.webp" alt="Zapachy dla domu – dyfuzory">
+        </div>
+        <h3 class="with-underline">Zapachy dla domu</h3>
+      </div>
+
+      <div class="cat-img" onclick="location.href='catalog.html?category=packages'">
+        <div class="cat-inner">
+          <img class="category-image" src="images/categories/catpack.webp" alt="Zestawy prezentowe">
+        </div>
+        <h3 class="with-underline">Zestawy</h3>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span>© 2025 makifragrances. All rights reserved.</span>
+      <a class="insta-link" href="https://www.instagram.com/maki_fragrances?utm_source=ig_web_button_share_sheet&igsh=OG42c3ZhM2Y1ems5" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+    <div class="footer-right">
+      <span>Potrzebujesz indywidualnego zamówienia?</span><br/>
+      <span>Chcesz się skontaktować w sprawie swoich zakupów?</span><br/>
+      <span>Napisz do nas email: <a id="emailLink" href="mailto:makifragrances@gmail.com">makifragrances@gmail.com</a></span><br/>
+    </div>
+  </footer>
+
+  <!-- Skrypty -->
+  <script src="script.js"></script>
+</body>
 </html>

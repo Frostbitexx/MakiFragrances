@@ -120,23 +120,23 @@
 
 </div>
   <!-- Dane klienta -->
-  <label>Imię i nazwisko*<br>
+  <label>Imię i nazwisko<span style="color: red; font-size: 22px;">*</span><br>
     <input type="text" name="fullName" required>
   </label><br>
 
-  <label>Ulica i numer domu*<br>
+  <label>Ulica i numer domu<span style="color: red; font-size: 22px;">*</span><br>
     <input type="text" name="address" required>
   </label><br>
 
-  <label>Kod pocztowy i miasto*<br>
+  <label>Kod pocztowy i miasto<span style="color: red; font-size: 22px;">*</span><br>
     <input type="text" name="city" required>
   </label><br>
 
-  <label>Adres e-mail*<br>
+  <label>Adres e-mail<span style="color: red; font-size: 22px;">*</span><br>
     <input type="email" name="email" required>
   </label><br>
 
-  <label>Numer telefonu*<br>
+  <label>Numer telefonu<span style="color: red; font-size: 22px;">*</span><br>
     <input type="tel" name="phone" required>
   </label><br>
 <label>Napisz dedykację lub spersonalizowane życzenia (opcjonalnie):</label>
@@ -152,7 +152,7 @@
   </div>
 </div>
 
-<label>Wybierz rodzaj opakowania dla swojego zamówienia:</label>
+<label>Wybierz rodzaj opakowania dla swojego zamówienia:<span style="color: red; font-size: 22px;">*</span> </label>
 <div class="package-container">
   <label class="package-option">
     <img src="images/black.webp" alt="Czarne opakowanie">
@@ -168,7 +168,7 @@
     </div>
   </label>
 </div>
-<label>Wybierz formę dostawy:</label>
+<label>Wybierz formę dostawy:<span style="color: red; font-size: 22px;">*</span></label>
 <div class="delivery-container">
   <label class="delivery-option">
     <input type="radio" name="delivery" value="kurier" required> Kurier (pod adres z formularza)
@@ -208,7 +208,13 @@
     Kliknij marker na mapie i wybierz „Wybierz ten punkt”, żeby wstawić kod do pola powyżej.
   </p>
 </div>
-
+<br>
+<label>Uwagi do zamówienia (opcjonalnie):</label>
+<textarea class="notes-textarea"
+  name="notes"
+  rows="3"
+  placeholder="napisz np. które produkty chcesz zapakować osobno lub ile potrzebujesz karteczek ze zdjęciem i dedykacją"
+></textarea>
 
 
   <label>

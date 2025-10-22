@@ -1,135 +1,152 @@
 <!DOCTYPE html>
-
 <html lang="pl">
 <head>
-  <!-- Google tag (gtag.js) + Consent Mode (domyślnie bez zgody) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4S3F3LLH8D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
+  <!-- PODSTAWA -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  // Domyślnie: brak zgody (zgodne z RODO)
-  gtag('consent','default', {
-    ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied'
-  });
+  <!-- SEO TEJ PODSTRONY (zostaw, możesz mieć też swoje istniejące linki/styles poniżej) -->
+  <title>O marce makifragrances – zapach, który zostaje | ręcznie robione świece i dyfuzory</title>
+  <meta name="description" content="makifragrances to jednoosobowa pracownia, w której zapach staje się wspomnieniem. Ręcznie robione świece sojowe i dyfuzory z naturalnych składników – vintage i decoupage.">
+  <link rel="canonical" href="https://makifragrances.pl/about.html" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
-  gtag('js', new Date());
-  gtag('config','G-XXXXXXX',{ /* anonymize_ip domyślnie w GA4 */ });
+  <!-- Open Graph / Facebook / Instagram -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="makifragrances" />
+  <meta property="og:url" content="https://makifragrances.pl/about.html" />
+  <meta property="og:title" content="O marce makifragrances – zapach, który zostaje" />
+  <meta property="og:description" content="Ręcznie tworzone świece i dyfuzory z naturalnych składników. Styl vintage, osobisty charakter i nieszablonowe kompozycje." />
+  <!-- PODMIEŃ NA REALNĄ ŚCIEŻKĘ 1200×630 -->
+  <meta property="og:image" content="https://makifragrances.pl/og-image.jpg" />
 
-  // Jeśli użytkownik wyraził zgodę wcześniej – przywróć ją z localStorage
-  (function(){
-    try {
-      const c = localStorage.getItem('analytics_consent');
-      if (c === 'granted') {
-        gtag('consent','update',{ analytics_storage:'granted' });
-      }
-    } catch(e){}
-  })();
-</script>
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="O marce makifragrances – zapach, który zostaje" />
+  <meta name="twitter:description" content="Ręcznie robione świece sojowe i dyfuzory. Naturalne składniki, vintage i decoupage." />
+  <meta name="twitter:image" content="https://makifragrances.pl/og-image.jpg" />
 
-<link href="images/logo.ico" rel="icon" type="image/x-icon"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Maki Fragrances</title>
-<link href="style.css" rel="stylesheet">
-</link>
-<script src="products.js"></script>
+  <!-- JSON-LD: AboutPage + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "O marce makifragrances",
+    "description": "Ręcznie robione świece sojowe i dyfuzory z naturalnych składników. Vintage, decoupage i osobiste kompozycje zapachowe.",
+    "url": "https://makifragrances.pl/about.html",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "makifragrances",
+      "url": "https://makifragrances.pl/",
+      "logo": "https://makifragrances.pl/logo.png",
+      "sameAs": []
+    }
+  }
+  </script>
+
+  <!-- (ZOSTAW SWOJE ISTNIEJĄCE LINKI – NIE USUWAMY) Ikonka/CSS/Font Awesome itd. -->
+  <link href="images/logo.ico" rel="icon" type="image/x-icon"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet" />
+  <!-- Jeśli używasz swoich skryptów, też zostaw: -->
+  <script src="products.js" defer></script>
 </head>
-<div class="promo-banner">
-  <p class="promo-text">Darmowa dostawa przy zamówieniach powyżej 200 zł !!!</p>
-</div>
-<div class="header">
-<a class="logo-link" href="index.html">
-<div class="logo-wrapper">
-<img alt="MAKI logo" class="logo" src="images/logo.webp"/>
-</div>
-</a>
-<div class="right-side">
-<div class="search-bar">
-  <i class="fas fa-search"></i>
-  <input type="text" placeholder="Wyszukaj produkty, kategorie, zapachy" id="searchInput" autocomplete="off" />
-  <a href="koszyk.html" class="cart-icon">
-    (<span id="cartCount">0</span>)
-    <i class="fas fa-shopping-cart"></i>
-  </a>
-  <button class="menu-toggle" onclick="toggleMenu()">
-    <i class="fas fa-bars"></i>
-  </button>
-</div>
 
-<nav class="menu">
-<ul>
-<li><a href="index.html">STRONA GŁÓWNA</a></li> 
-<li><a href="catalog.html">KATALOG</a></li>
-<li><a href="about.html">O NAS</a></li>
-<li><a href="contact.html">KONTAKT</a></li>
-<li><a href="regulamin.html">REGULAMIN</a></li>
-<li><a href="rodo.html">POLITYKA PRYWATNOŚCI</a></li>
-</ul>
-</nav>
-</div>
-</div>
-<div id="searchResults" class="search-results"></div>
 <body>
-<section class="slider-container">
-  <div class="logo-overlay">
-    <img alt="MAKI logo" class="logo" src="images/logo_white.webp"/>
+  <!-- (opcjonalnie) Pasek promo / header jak na stronie głównej -->
+  <div class="promo-banner">
+    <p class="promo-text">Darmowa dostawa przy zamówieniach powyżej 200 zł !!!</p>
   </div>
-  <div class="slider-wrapper">
-    <div class="slider">
-      <img src="images/baner00.webp" alt="Baner 1" />
-      <img src="images/baner21.webp" alt="Baner 2" />
-      <img src="images/image2.webp" alt="Baner 3" />
-    </div>
-    <div class="slider-nav">
-      <button data-slide="0" class="dot"></button>
-      <button data-slide="1" class="dot"></button>
-      <button data-slide="2" class="dot"></button>
-    </div>
-  </div>
-</section>
 
-<div class="about">
-    <h3>O NAS</h3>
-  <h2>Zapach to coś, co pozostaje, nawet gdy wszystko inne znika.</h2>
-  <p>Może przypomnieć dom babci na wsi,</p>
-  <p>szklarni z pomidorami zrywanymi podczas wakacji,</p>
-  <p>pierwszego papierosa za garażami,</p>
-  <p>pierwszą miłość,</p>
-  <p>czarną porzeczkę przy domowym ganku,</p>
-  <p>albo zapach kadzidła w niedzielnym kościele.</p><br>
-
-<p>Każdy zapach to mała opowieść.Być może odnajdziesz w niej swoją własną historię.</p>
-
-<p>Do każdego zamówienia dołączam zdjęcie gdzie możesz napisać osobistą wiadomość — dla   kogoś bliskiego.</p><br>
-
-<p>Każdy słoiczek matowię ręcznie.Etykiety są celowo postarzane i podpisywane kaligraficznym piórem.Zamykam je lakową pieczęcią — jak kiedyś, w dawnych czasach.</p><br>
-
-<h2>MAKI to nie tylko zapach. To wspomnienie, które zostaje z Tobą.</h2>
-<img class="about-image" src="images/about.webp" alt="">
-</div>
-
-
- 
-
-
-</body>
-
-<script src="script.js"></script>
-
-
-<footer class="footer">
-<div class="footer-left">
-<span>© 2025 Maki Fragrances. All rights reserved.</span>
-<a class="insta-link" href="https://www.instagram.com/maki_fragrances?utm_source=ig_web_button_share_sheet&igsh=OG42c3ZhM2Y1ems5" target="_blank">
-<i class="fab fa-instagram"></i> Instagram
+  <header class="header">
+    <a class="logo-link" href="index.html" aria-label="makifragrances – strona główna">
+      <div class="logo-wrapper">
+        <img alt="makifragrances logo" class="logo" src="images/logo.webp"/>
+      </div>
     </a>
-</div>
-<div class="footer-right">
-<span>Potrzebujesz indywidualnego zamówienia?</span><br/>
-<span>Chcesz się skontaktować w sprawie swoich zakupów?</span><br/>
-<span>Napisz do nas email: <a id="emailLink" href="mailto:makifragrances@gmail.com">makifragrances@gmail.com</a></span><br/>
-</div>
-</footer>
+
+    <div class="right-side">
+      <div class="search-bar">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input type="text" placeholder="Wyszukaj produkty, kategorie, zapachy" id="searchInput" autocomplete="off" />
+        <a href="koszyk.html" class="cart-icon" aria-label="Koszyk">
+          (<span id="cartCount">0</span>) <i class="fas fa-shopping-cart"></i>
+        </a>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Pokaż/ukryj menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <nav class="menu" aria-label="Główne menu">
+        <ul>
+          <li><a href="index.html">STRONA GŁÓWNA</a></li>
+          <li><a href="catalog.html">KATALOG</a></li>
+          <li class="active"><a href="about.html" aria-current="page">O MARCE</a></li>
+          <li><a href="contact.html">KONTAKT</a></li>
+          <li><a href="regulamin.html">REGULAMIN</a></li>
+          <li><a href="rodo.html">POLITYKA PRYWATNOŚCI</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumby (widoczne + JSON-LD) -->
+  <nav class="breadcrumbs" aria-label="Okruszki">
+    <a href="index.html">Strona główna</a> › <span>O marce</span>
+  </nav>
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "BreadcrumbList",
+   "itemListElement": [{
+     "@type": "ListItem", "position": 1, "name": "Strona główna", "item": "https://makifragrances.pl/"
+   },{
+     "@type": "ListItem", "position": 2, "name": "O marce", "item": "https://makifragrances.pl/about.html"
+   }]
+  }
+  </script>
+
+  <main class="container about">
+    <h1>O MARCE</h1>
+
+    <!-- TWOJA TREŚĆ – NIEZMIENIONA -->
+    <h2>Zapach to coś, co pozostaje, nawet gdy wszystko inne znika.</h2>
+    <p>Może przypomnieć dom babci na wsi,</p>
+    <p>szklarni z pomidorami zrywanymi podczas wakacji,</p>
+    <p>pierwszego papierosa za garażami,</p>
+    <p>pierwszą miłość,</p>
+    <p>czarną porzeczkę przy domowym ganku,</p>
+    <p>albo zapach kadzidła w niedzielnym kościele.</p>
+    <br>
+
+    <p>Każdy zapach to mała opowieść.Być może odnajdziesz w niej swoją własną historię.</p>
+
+    <p>Do każdego zamówienia dołączam zdjęcie gdzie możesz napisać osobistą wiadomość — dla kogoś bliskiego.</p>
+    <br>
+
+    <p>Każdy słoiczek matowię ręcznie.Etykiety są celowo postarzane i podpisywane kaligraficznym piórem.Zamykam je lakową pieczęcią — jak kiedyś, w dawnych czasach.</p>
+    <br>
+
+    <h2>MAKI to nie tylko zapach. To wspomnienie, które zostaje z Tobą.</h2>
+
+    <img class="about-image" src="images/about.webp" alt="Ręcznie matowione słoiczki, etykiety vintage i lakowa pieczęć – makifragrances">
+  </main>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <span>© 2025 makifragrances. All rights reserved.</span>
+      <a class="insta-link" href="https://www.instagram.com/maki_fragrances?utm_source=ig_web_button_share_sheet&igsh=OG42c3ZhM2Y1ems5" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+    <div class="footer-right">
+      <span>Potrzebujesz indywidualnego zamówienia?</span><br/>
+      <span>Chcesz się skontaktować w sprawie swoich zakupów?</span><br/>
+      <span>Napisz do nas email: <a id="emailLink" href="mailto:makifragrances@gmail.com">makifragrances@gmail.com</a></span><br/>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
 </html>
