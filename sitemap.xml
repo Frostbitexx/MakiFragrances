@@ -1,12 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://makifragrances.pl/</loc></url>
-  <url><loc>https://makifragrances.pl/catalog.html</loc></url>
-  <url><loc>https://makifragrances.pl/catalog.html?category=candles</loc></url>
-  <url><loc>https://makifragrances.pl/catalog.html?category=diffuzers</loc></url>
-  <url><loc>https://makifragrances.pl/catalog.html?category=packages</loc></url>
-  <url><loc>https://makifragrances.pl/about.html</loc></url>
-  <url><loc>https://makifragrances.pl/contact.html</loc></url>
-  <url><loc>https://makifragrances.pl/regulamin.html</loc></url>
-  <url><loc>https://makifragrances.pl/rodo.html</loc></url>
+<urlset 
+  xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="https://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- STRONA GŁÓWNA -->
+  <url>
+    <loc>https://makifragrances.pl/</loc>
+    <image:image>
+      <image:loc>https://makifragrances.pl/images/baner00.webp</image:loc>
+      <image:title>Maki Fragrances – ręcznie robione świece i dyfuzory</image:title>
+    </image:image>
+  </url>
+
+  <!-- KATALOG -->
+  <url>
+    <loc>https://makifragrances.pl/catalog.html</loc>
+    <image:image>
+      <image:loc>https://makifragrances.pl/images/categories/catcan.webp</image:loc>
+      <image:title>Świece sojowe Maki Fragrances</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://makifragrances.pl/images/categories/catdiff.webp</image:loc>
+      <image:title>Dyfuzory zapachowe Maki Fragrances</image:title>
+    </image:image>
+  </url>
+
+  <!-- ŚWIECE -->
+  <url>
+    <loc>https://makifragrances.pl/catalog.html?category=candles</loc>
+    <image:image>
+      <image:loc>https://makifragrances.pl/images/categories/catcan.webp</image:loc>
+      <image:title>Ręcznie robione świece sojowe</image:title>
+    </image:image>
+  </url>
+
+  <!-- DYFUZORY -->
+  <url>
+    <loc>https://makifragrances.pl/catalog.html?category=diffuzers</loc>
+    <image:image>
+      <image:loc>https://makifragrances.pl/images/categories/catdiff.webp</image:loc>
+      <image:title>Dyfuzory zapachowe z naturalnych składników</image:title>
+    </image:image>
+  </url>
+
+  <!-- ZESTAWY -->
+  <url>
+    <loc>https://makifragrances.pl/catalog.html?category=packages</loc>
+    <image:image>
+      <image:loc>https://makifragrances.pl/images/categories/catpack.webp</image:loc>
+      <image:title>Zestawy świec i dyfuzorów Maki Fragrances</image:title>
+    </image:image>
+  </url>
+
+  <!-- O NAS -->
+  <url>
+    <loc>https://makifragrances.pl/about.html</loc>
+    <image:image>
+      <image:loc>https://makifragrances.pl/images/about.webp</image:loc>
+      <image:title>O marce Maki Fragrances</image:title>
+    </image:image>
+  </url>
+
+  <!-- KONTAKT -->
+  <url>
+    <loc>https://makifragrances.pl/contact.html</loc>
+  </url>
+
 </urlset>
