@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- SEO -->
-  <title>makifragrances – ręcznie robione świece sojowe i dyfuzory | naturalne składniki, vintage, decoupage</title>
-  <meta name="description" content="makifragrances to jednoosobowa pracownia zapachów: ręcznie robione świece sojowe i dyfuzory z naturalnych składników, nieszablonowe kompozycje oraz zestawy prezentowe w stylu vintage i decoupage.">
+  <title>makifragrances | ręcznie robione świece sojowe i dyfuzory | naturalne składniki, vintage, decoupage</title>
+  <meta name="description" content="Naturalne, ręcznie tworzone świece sojowe i dyfuzory z unikatowymi zapachami w stylu vintage.">
+  
   <link rel="canonical" href="https://makifragrances.pl/">
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
 
@@ -27,31 +28,56 @@
   <meta name="twitter:image" content="https://makifragrances.pl/og-image.jpg">
 
   <!-- JSON-LD: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "makifragrances",
-    "url": "https://makifragrances.pl/",
-    "logo": "https://makifragrances.pl/images/logo.webp",
-    "sameAs": []
-  }
-  </script>
-
-  <!-- JSON-LD: WebSite + wyszukiwarka -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "makifragrances",
-    "url": "https://makifragrances.pl/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://makifragrances.pl/szukaj?q={query}",
-      "query-input": "required name=query"
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Maki Fragrances",
+  "url": "https://makifragrances.pl/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://makifragrances.pl/catalog.html?q={query}",
+    "query-input": "required name=query"
+  },
+  "hasPart": [
+    {
+      "@type": "CollectionPage",
+      "name": "Katalog",
+      "url": "https://makifragrances.pl/catalog.html",
+      "description": "Przejrzyj katalog naturalnych, ręcznie robionych świec sojowych i dyfuzorów zapachowych."
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "Świece",
+      "url": "https://makifragrances.pl/catalog.html?category=candles",
+      "description": "Ręcznie robione świece sojowe z naturalnych składników."
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "Dyfuzory",
+      "url": "https://makifragrances.pl/catalog.html?category=diffuzers",
+      "description": "Dyfuzory zapachowe z naturalnych olejków eterycznych."
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "Zestawy",
+      "url": "https://makifragrances.pl/catalog.html?category=packages",
+      "description": "Wybierz jeden z tematycznych zestawów dla siebie lub na prezent."
+    },
+    {
+      "@type": "AboutPage",
+      "name": "O nas",
+      "url": "https://makifragrances.pl/about.html"
+    },
+    {
+      "@type": "ContactPage",
+      "name": "Kontakt",
+      "url": "https://makifragrances.pl/contact.html"
     }
-  }
-  </script>
+  ]
+}
+</script>
+
 
   <!-- JSON-LD: FAQ (opcjonalne rich results) -->
   <script type="application/ld+json">
@@ -78,7 +104,6 @@
   }
   </script>
 
-  <!-- ZOSTAWIONE: Twoje istniejące zasoby -->
   <link href="images/logo.ico" rel="icon" type="image/x-icon"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -87,6 +112,8 @@
 </head>
 
 <body>
+
+
   <div class="promo-banner">
     <p class="promo-text">Darmowa dostawa przy zamówieniach powyżej 200 zł !!!</p>
   </div>
@@ -172,18 +199,56 @@
     </section>
   </main>
 
+
+
+
+
   <footer class="footer">
-    <div class="footer-left">
-      <span>© 2025 makifragrances. All rights reserved.</span>
-      <a class="insta-link" href="https://www.instagram.com/maki_fragrances?utm_source=ig_web_button_share_sheet&igsh=OG42c3ZhM2Y1ems5" target="_blank" rel="noopener">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-    </div>
-    <div class="footer-right">
-      <span>Potrzebujesz indywidualnego zamówienia?</span><br/>
-      <span>Chcesz się skontaktować w sprawie swoich zakupów?</span><br/>
-      <span>Napisz do nas email: <a id="emailLink" href="mailto:makifragrances@gmail.com">makifragrances@gmail.com</a></span><br/>
-    </div>
+<!-- 🔗 Sekcja linków w stopce (4 kolumny, dopasowana do footer) -->
+<div class="footer-links">
+  <div class="footer-col">
+    <h4>Sklep</h4>
+    <ul>
+      <li><a href="https://makifragrances.pl/catalog.html">Katalog</a></li>
+      <li><a href="https://makifragrances.pl/catalog.html?category=candles">Świece</a></li>
+      <li><a href="https://makifragrances.pl/catalog.html?category=diffuzers">Dyfuzory</a></li>
+      <li><a href="https://makifragrances.pl/catalog.html?category=packages">Zestawy</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-col">
+    <h4>O marce</h4>
+    <ul>
+      <li><a href="https://makifragrances.pl/about.html">O nas</a></li>
+    </ul>
+    <h4 class="mt24">Wsparcie</h4>
+    <ul>
+      <li><a href="https://makifragrances.pl/contact.html">Kontakt</a></li>
+      <li><a href="https://makifragrances.pl/regulamin.html">Regulamin</a></li>
+      <li><a href="https://makifragrances.pl/rodo.html">Polityka prywatności</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-col">
+    <h4>Social</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/maki_fragrances" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+      <li><a href="mailto:makifragrances@gmail.com"><i class="fa-regular fa-envelope"></i> Email</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-col footer-info">
+    <span>© 2025 Maki Fragrances. All rights reserved.</span><br><br>
+    <span>Potrzebujesz indywidualnego zamówienia?</span><br>
+    <span>Chcesz się skontaktować w sprawie swoich zakupów?</span><br>
+    <span>Napisz do nas email:
+      <a id="emailLink" href="mailto:makifragrances@gmail.com">makifragrances@gmail.com</a>
+    </span><br>
+  </div>
+</div>
+
+
+
   </footer>
 
   <!-- Skrypty -->
