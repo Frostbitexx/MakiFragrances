@@ -102,7 +102,7 @@ body {
   font-family: 'CutiveMono';
 }
 .search-results {
-  position: sticky;
+  position: fixed;
   top: 90px;
   background: white;
   border: 1px solid #ccc;
@@ -113,6 +113,7 @@ body {
   display: none;
   font-family: 'CutiveMono';
   padding-left: 10vw;
+  padding-top: 20px;
 }
 
 .search-results div {
@@ -643,7 +644,8 @@ font-family: 'CutiveMono';
   width: 100%;
   max-height: 70vh;
   overflow: hidden;
-  position: relative;
+
+
   margin-bottom: 20px;
 }
 
@@ -1407,7 +1409,7 @@ body{
     flex-direction: column;
     height: auto;
     padding: 0;
-
+  z-index: 100000;
   }
   .reg-container{
   font-size: 15px;
@@ -1476,6 +1478,7 @@ body{
     justify-content: center;
     height: 35px;
     width: auto;
+
   }
 
   .search-bar input {
