@@ -399,6 +399,25 @@ font-family: 'CutiveMono';
   border: #000000;
 }
 
+/* Sale price styles */
+.old-price {
+  text-decoration: line-through;
+  color: #8a8a8a;
+  margin-right: 8px;
+  font-size: 0.95em;
+}
+.sale-price {
+  color: #b71c1c; /* ciemnoczerwony */
+  font-weight: 700;
+  font-size: 1.05em;
+}
+.price .old-price, .cart-price .old-price {
+  display: inline-block;
+}
+.price .sale-price, .cart-price .sale-price {
+  display: inline-block;
+}
+
 .product-title {
   font-size: 28px;
   font-family: 'iBM Plex Mono', monospace;
@@ -2025,9 +2044,25 @@ padding: 5px 10px;
 /* --- Availability UI --- */
 .badge-unavail {
   position: absolute;
-  top: 10px; left: 10px;
+  top: 10px; right: 10px;
   z-index: 3;
+  opacity: 0.8;
   background: #111;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: .3px;
+}
+
+/* plakietka promocji */
+.badge-sale {
+  position: absolute;
+  top: 10px; right: 10px;
+  z-index: 4;
+  opacity: 0.8;
+  background: #b71c1c;
   color: #fff;
   padding: 6px 10px;
   border-radius: 999px;

@@ -11,6 +11,25 @@ function isAvailable(product) {
   return !["no","nie","false","0","out","niedostępny","niedostepny"].includes(s);
 }
 
+// ========================
+// Sale price helpers
+// ========================
+function getPriceValue(product) {
+  if (!product) return 0;
+  const s = product.sale;
+  if (s == null || s === "" || Number.isNaN(Number(s))) return Number(product.price || 0);
+  return Number(s);
+}
+
+function getDisplayedPriceHTML(product) {
+  const base = Number(product.price || 0);
+  const sale = product.sale == null || product.sale === "" ? null : Number(product.sale);
+  if (sale == null || Number.isNaN(sale) || sale >= base) {
+    return `${Math.round(base)} zł`;
+  }
+  return `<span class="old-price">${Math.round(base)} zł</span> <span class="sale-price">${Math.round(sale)} zł</span>`;
+}
+
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -112,7 +131,8 @@ function openSideCartPanel(productId, qty) {
   if (!product) {
     bodyEl.innerHTML = `<p style >Dodano do koszyka.</p>`;
   } else {
-    const lineTotal = (product.price * quantity).toFixed(2);
+    const unitPrice = getPriceValue(product);
+    const lineTotal = Math.round(unitPrice * quantity);
     const title = product.category === 'packages'
       ? (product.setType === 'set3' ? 'SET OF 3 CANDLES'
          : product.setType === 'set2+1' ? 'CANDLES(2) & DIFFUSER SET'
@@ -129,7 +149,7 @@ function openSideCartPanel(productId, qty) {
           <div class="side-cart-title">${title}</div>
           <div class="side-cart-sub">${subtitle} ${product.weight}</div>
           <div class="side-cart-line">Ilość: <b>${quantity}</b></div>
-          <div class="side-cart-line">Cena: <b>${product.price.toFixed(2)} zł</b></div>
+          <div class="side-cart-line">Cena: <b>${getDisplayedPriceHTML(product)}</b></div>
           <div class="side-cart-summary">Razem: ${lineTotal} zł</div>
         </div>
       </div>
@@ -190,6 +210,7 @@ function renderProducts() {
 
     const available = isAvailable(product);
     if (!available) div.classList.add("unavailable");
+    const onSale = product && product.sale != null && !Number.isNaN(Number(product.sale)) && Number(product.sale) < Number(product.price);
 
 
     div.innerHTML = `
@@ -200,7 +221,7 @@ function renderProducts() {
         </div>
       </div>
 
-      ${available ? "" : `<span class="badge-unavail">Tymczasowo niedostępny</span>`}
+      ${available ? "" : '<span class="badge-unavail">Tymczasowo niedostępny</span>'}${onSale ? '<span class="badge-sale">Promocja</span>' : ''}
 
       <h3 class="tile-title">${
         product.category === "packages"
@@ -220,7 +241,7 @@ function renderProducts() {
           <span class="min-basket">
             <i class="fas fa-cart-arrow-down" data-id="${id}" onclick="addToCart(event)"></i>
           </span>` : ``}
-        <span class="price">${product.price} zł</span>
+        <span class="price">${getDisplayedPriceHTML(product)}</span>
       </div>
     `;
 
@@ -248,6 +269,7 @@ function renderCatalogFiltered(selectedCategory) {
 
     const available = isAvailable(product);
     if (!available) div.classList.add("unavailable");
+    const onSale = product && product.sale != null && !Number.isNaN(Number(product.sale)) && Number(product.sale) < Number(product.price);
 
 
     div.innerHTML = `
@@ -258,7 +280,7 @@ function renderCatalogFiltered(selectedCategory) {
         </div>
       </div>
 
-      ${available ? "" : `<span class="badge-unavail">Tymczasowo niedostępny</span>`}
+      ${available ? "" : '<span class="badge-unavail">Tymczasowo niedostępny</span>'}${onSale ? '<span class="badge-sale">Promocja</span>' : ''}
 
       <h3 class="tile-title">${
         product.category === "packages"
@@ -278,7 +300,7 @@ function renderCatalogFiltered(selectedCategory) {
           <span class="min-basket">
             <i class="fas fa-cart-arrow-down" data-id="${id}" onclick="addToCart(event)"></i>
           </span>` : ``}
-        <span class="price">${product.price} zł</span>
+        <span class="price">${getDisplayedPriceHTML(product)}</span>
       </div>
     `;
 
@@ -333,7 +355,8 @@ if (isCatalogPage) {
 cart.forEach(item => {
   const product = products[item.id];
   if (product) {
-    const itemTotal = product.price * item.qty;
+    const unit = getPriceValue(product);
+    const itemTotal = unit * item.qty;
     total += itemTotal;
 
     // Budowanie pełnej nazwy produktu
@@ -358,20 +381,20 @@ const grandTotal = total + deliveryCost;
 
 displayNumber.innerText = orderNumber;
 displaySummary.innerText = summary;
-displayTotal.innerText = total.toFixed(2);
+  displayTotal.innerText = Math.round(total);
 
 // nowa linia: razem z dostawą
 const displayGrandTotal = document.getElementById("orderGrandTotalDisplay");
 const inputGrandTotal = document.getElementById("orderGrandTotalInput");
 
-if (displayGrandTotal && inputGrandTotal) {
-  displayGrandTotal.innerText = grandTotal.toFixed(2);
+  if (displayGrandTotal && inputGrandTotal) {
+  displayGrandTotal.innerText = Math.round(grandTotal);
   inputGrandTotal.value = grandTotal.toFixed(2);
 }
 
 inputNumber.value = orderNumber;
 inputSummary.value = summary;
-inputTotal.value = total.toFixed(2); 
+  inputTotal.value = total.toFixed(2); 
 
   }
 });
@@ -395,6 +418,20 @@ inputTotal.value = total.toFixed(2);
       viewer.appendChild(badge);
     }
   }
+
+  // plakietka promocji na zdjęciu (jeśli cena promocyjna jest niższa)
+  try {
+    const onSale = product && product.sale != null && !Number.isNaN(Number(product.sale)) && Number(product.sale) < Number(product.price);
+    if (onSale) {
+      const viewer2 = document.querySelector(".image-viewer");
+      if (viewer2) {
+        const badgeSale = document.createElement("span");
+        badgeSale.className = "badge-sale";
+        badgeSale.textContent = "Promocja";
+        viewer2.appendChild(badgeSale);
+      }
+    }
+  } catch (err) { /* ignore */ }
 
   // przycisk „Dodaj do koszyka” -> zastąp komunikatem
   if (!available) {
@@ -441,7 +478,7 @@ if (titleEl) {
   if (subtitleEl) subtitleEl.innerText = product.productSubtitle;
 
   const priceEl = document.querySelector(".product-price");
-  if (priceEl) priceEl.innerText = product.price.toFixed(2) + " zł";
+  if (priceEl) priceEl.innerHTML = getDisplayedPriceHTML(product);
 
   const weightEl = document.querySelector(".productWeight");
   if (weightEl) weightEl.innerText = product.weight || "";
@@ -529,7 +566,8 @@ function swapImage(thumb) {
       const product = products[item.id];
       if (!product) return;
 
-      const itemTotal = product.price * item.qty;
+      const unit = getPriceValue(product);
+      const itemTotal = unit * item.qty;
       total += itemTotal;
 
 cartItemsDiv.innerHTML += `
@@ -554,7 +592,7 @@ cartItemsDiv.innerHTML += `
               ? (product.setType === "set3" ? "Set of 3 candles" : "Candle & Diffuser Set")
               : product.name
           } (x${item.qty})</span>
-          <span class="cart-price">${product.price.toFixed(2)} zł / ${itemTotal.toFixed(2)} zł</span>
+          <span class="cart-price">${getDisplayedPriceHTML(product)} / ${Math.round(itemTotal)} zł</span>
           <p class="cart-subtitle">${product.productSubtitle}  ${product.weight}</p>
         </div>
       </a>
@@ -573,14 +611,14 @@ const deliveryCost = total >= FREE_SHIPPING_THRESHOLD ? 0 : BASE_DELIVERY_COST;
 const grandTotal = total + deliveryCost;
 
 const deliveryLabel = deliveryCost === 0
-  ? `0,00 zł <span style="color:#2e7d32; font-weight:600;">(darmowa dostawa od ${FREE_SHIPPING_THRESHOLD} zł)</span>`
-  : `${deliveryCost.toFixed(2)} zł`;
+  ? `0 zł <span style="color:#2e7d32; font-weight:600;">(darmowa dostawa od ${FREE_SHIPPING_THRESHOLD} zł)</span>`
+  : `${Math.round(deliveryCost)} zł`;
 
 cartTotalDiv.innerHTML = `
-  <p style="line-height:1.5;">Suma produktów: ${total.toFixed(2)} zł</p>
+  <p style="line-height:1.5;">Suma produktów: ${Math.round(total)} zł</p>
   <p style="line-height:1.5;">Dostawa: ${deliveryLabel}</p>
   <hr style="border:none; border-top:1px solid #ddd;">
-  <p style="line-height:1.5;">Razem do zapłaty: ${grandTotal.toFixed(2)} zł</p>
+  <p style="line-height:1.5;">Razem do zapłaty: ${Math.round(grandTotal)} zł</p>
 `;
 
 

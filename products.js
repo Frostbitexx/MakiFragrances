@@ -10,7 +10,7 @@ window.products = {
     "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
     "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "weight": "200g",
-    "mainImage": "images/white/main.webp",
+    "mainImage": "images/white/main2.webp",
     "thumbs": [
       "images/white/thumb1.webp",
       "images/white/thumb2.webp",
@@ -28,7 +28,7 @@ window.products = {
     "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
     "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "weight": "250g",
-    "mainImage": "images/amber/main.webp",
+    "mainImage": "images/amber/main2.webp",
     "thumbs": [
       "images/amber/thumb1.webp",
       "images/amber/thumb2.webp",
@@ -46,7 +46,7 @@ window.products = {
     "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
     "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "weight": "200g",
-    "mainImage": "images/white/main.webp",
+    "mainImage": "images/white/main2.webp",
     "thumbs": [
       "images/white/thumb1.webp",
       "images/white/thumb2.webp",
@@ -64,7 +64,7 @@ window.products = {
     "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
     "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "weight": "250g",
-    "mainImage": "images/amber/main.webp",
+    "mainImage": "images/amber/main2.webp",
     "thumbs": [
       "images/amber/thumb1.webp",
       "images/amber/thumb2.webp",
@@ -154,7 +154,7 @@ window.products = {
     "about": "Czas palenia świecy wynosi do 45 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
     "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "weight": "200g",
-    "mainImage": "images/white/main.webp",
+    "mainImage": "images/white/main2.webp",
     "thumbs": [
       "images/white/thumb1.webp",
       "images/white/thumb2.webp",
@@ -172,7 +172,7 @@ window.products = {
     "about": "Czas palenia świecy wynosi do 55 godzin. Przed każdym zapaleniem delikatnie oczyść bawełniany knot — usuń zwęgloną końcówkę chusteczką, aby płomień palił się równo i czysto. Przy pierwszym użyciu koniecznie poczekaj, aż wosk roztopi się do krawędzi szkła — to pomoże uniknąć tunelowania. Nie pal świecy dłużej niż 3–4 godziny bez przerwy.",
     "ingredients": "Wosk sojowy, bawełniany knot, kompozycja zapachowa.",
     "weight": "250g",
-    "mainImage": "images/amber/main.webp",
+    "mainImage": "images/amber/main2.webp",
     "thumbs": [
       "images/amber/thumb1.webp",
       "images/amber/thumb2.webp",
@@ -514,7 +514,7 @@ window.products = {
     "desc": "Świeży, ciepły i nastrojowy zapach o leśnym charakterze. Ziemisty mech dębowy i delikatna ambra tworzą wrażenie ciszy pod koronami drzew, a miękkie nuty cedru, drzewa sandałowego i piżma dodają głębi i przytulności. Ten zapach przypomina spacer po wilgotnym lesie — spokojny i naprawdę bliski sercu. Czysty, intensywny, drzewny — idealny wybór dla tych, którzy cenią sobie ciepłą, naturalną atmosferę.",
     "about": "Trwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
     "ingredients": "MMB, AUGEO, kompozycja zapachowa.",
-    "mainImage": "images/whitediff/main.webp",
+    "mainImage": "images/whitediff/main2.webp",
     "thumbs": [
       "images/whitediff/thumb1.webp",
       "images/whitediff/thumb2.webp",
@@ -532,7 +532,7 @@ window.products = {
     "desc": "Świeży, ciepły i nastrojowy zapach o leśnym charakterze. Ziemisty mech dębowy i delikatna ambra tworzą wrażenie ciszy pod koronami drzew, a miękkie nuty cedru, drzewa sandałowego i piżma dodają głębi i przytulności. Ten zapach przypomina spacer po wilgotnym lesie — spokojny i naprawdę bliski sercu. Czysty, intensywny, drzewny — idealny wybór dla tych, którzy cenią sobie ciepłą, naturalną atmosferę.",
     "about": "Trwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
     "ingredients": "MMB, AUGEO, kompozycja zapachowa.",
-    "mainImage": "images/amberdiff/main.webp",
+    "mainImage": "images/amberdiff/main2.webp",
     "thumbs": [
       "images/amberdiff/thumb1.webp",
       "images/amberdiff/thumb2.webp",
@@ -550,7 +550,7 @@ window.products = {
     "desc": "Wyrazisty i intrygujący zapach, jak tajemniczy wieczór z lekką nutą niedopowiedzenia. Połączenie soczystej czarnej porzeczki, kwiatowych nut szałwii i anyżu tworzy wyjątkową, słodko-pikantną świeżość, którą łagodzą ciemne piżmo i fasola tonka. Idealny dla tych, którzy szukają czegoś nieoczywistego, głębokiego i urzekającego — trwały, ciepły, z charakterem.",
     "about": "Trwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
     "ingredients": "MMB, AUGEO, kompozycja zapachowa.",
-    "mainImage": "images/whitediff/main.webp",
+    "mainImage": "images/whitediff/main2.webp",
     "thumbs": [
       "images/whitediff/thumb1.webp",
       "images/whitediff/thumb2.webp",
@@ -568,7 +568,7 @@ window.products = {
     "desc": "Wyrazisty i intrygujący zapach, jak tajemniczy wieczór z lekką nutą niedopowiedzenia. Połączenie soczystej czarnej porzeczki, kwiatowych nut szałwii i anyżu tworzy wyjątkową, słodko-pikantną świeżość, którą łagodzą ciemne piżmo i fasola tonka. Idealny dla tych, którzy szukają czegoś nieoczywistego, głębokiego i urzekającego — trwały, ciepły, z charakterem.",
     "about": "Trwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
     "ingredients": "MMB, AUGEO, kompozycja zapachowa.",
-    "mainImage": "images/amberdiff/main.webp",
+    "mainImage": "images/amberdiff/main2.webp",
     "thumbs": [
       "images/amberdiff/thumb1.webp",
       "images/amberdiff/thumb2.webp",
@@ -586,7 +586,7 @@ window.products = {
     "desc": "Zapach starego pokoju, w którym wszystko przesiąknięte jest czasem: skórzany fotel, drewniany stół i lekki ślad tytoniu w powietrzu. Żywiczny labdanum, bergamotka i przyprawy rozwijają się łagodnie i spokojnie, a skóra i ambra nadają głębi i charakteru. Ciepły, nasycony i lekko tajemniczy — dla tych, którzy cenią ciszę i atmosferę.",
     "about": "Trwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
     "ingredients": "MMB, AUGEO, kompozycja zapachowa.",
-    "mainImage": "images/whitediff/main.webp",
+    "mainImage": "images/whitediff/main2.webp",
     "thumbs": [
       "images/whitediff/thumb1.webp",
       "images/whitediff/thumb2.webp",
@@ -604,7 +604,7 @@ window.products = {
     "desc": "Zapach starego pokoju, w którym wszystko przesiąknięte jest czasem: skórzany fotel, drewniany stół i lekki ślad tytoniu w powietrzu. Żywiczny labdanum, bergamotka i przyprawy rozwijają się łagodnie i spokojnie, a skóra i ambra nadają głębi i charakteru. Ciepły, nasycony i lekko tajemniczy — dla tych, którzy cenią ciszę i atmosferę.",
     "about": "Trwałość zapachu: do 9 miesięcy. Aby otworzyć dyfuzor, delikatnie odetnij wosk nożem lub nożyczkami wzdłuż krawędzi szyjki, żeby nie uszkodzić pozostałego wosku. Po włożeniu patyczków do dyfuzora, odwróć je po kilku godzinach, aby zapach szybciej rozprzestrzenił się w pomieszczeniu. Odwracaj patyczki co 5 dni.",
     "ingredients": "MMB, AUGEO, kompozycja zapachowa.",
-    "mainImage": "images/amberdiff/main.webp",
+    "mainImage": "images/amberdiff/main2.webp",
     "thumbs": [
       "images/amberdiff/thumb1.webp",
       "images/amberdiff/thumb2.webp",
